@@ -1,0 +1,26 @@
+Body {
+    margin: 0;
+    padding: 0;
+
+}
+.Container {
+    display: flex;
+    height: 100vh;
+
+}
+.Container-left {
+    width: 20%;
+    background-color: aqua;
+    padding: 1rem;
+}
+
+.Container-midle {
+    width: 20%;
+    background-color: blueviolet;
+    padding: 1rem;
+}
+.Container-right {
+    width: 20%;
+    background-color: brown;
+    padding: 1rem;
+}
