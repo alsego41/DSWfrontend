@@ -1,26 +1,30 @@
-Body {
+body {
     margin: 0;
     padding: 0;
 
 }
-.Container {
+.container {
+    width: 100%;
     display: flex;
-    height: 100vh;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
 
 }
-.Container-Left {
-    width: 20%;
+.container-left {
+    width: 80%;
     background-color: aqua;
     padding: 1rem;
+    font-size: 30px;
 }
 
-.Container-Midle {
-    width: 20%;
+.container-midle {
+    width: 10%;
     background-color: blueviolet;
     padding: 1rem;
 }
-.Container-Right {
-    width: 20%;
+.container-right {
+    width: 10%;
     background-color: brown;
     padding: 1rem;
 }
