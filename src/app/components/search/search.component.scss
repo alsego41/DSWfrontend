@@ -7,24 +7,34 @@ body {
 }
 #sectionBusqueda {
     display: flex;
+    height: 15vh;
     width: 100%;
-    background-color: lightgrey;
+    // background-color: lightgrey;
     align-items: center;
     justify-content: center;
-    gap: 20px;
 }
 #busquedaBox {
     display: flex;
-    background-color: grey;
-    width: 50%;
+    // background-color: grey;
+    width: 85%;
 }
 #busquedaInput {
+    height: 100%;
+    font-size: 18px;
+    padding: 15px;
     width: 90%;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+     border-radius: 20px;
+     border: 1px solid gray;
 }
 #busquedaButton {
     width: 10%;
-    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+// hover solo para desktop
 #busquedaButton:hover {
     background-color: aquamarine;
     cursor: pointer;

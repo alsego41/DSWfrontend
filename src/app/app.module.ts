@@ -7,6 +7,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { MatIconModule } from '@angular/material/icon';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +19,16 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     SearchComponent,
     CardsComponent,
-    FooterComponent
+    FooterComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatAutocompleteModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
