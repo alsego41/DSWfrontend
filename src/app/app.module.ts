@@ -9,6 +9,8 @@ import { CardsComponent } from './components/cards/cards.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatAutocompleteModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
