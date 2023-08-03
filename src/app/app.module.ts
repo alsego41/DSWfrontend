@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatIconModule } from '@angular/material/icon';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
     HeaderComponent,
     SearchComponent,
     CardsComponent,
-    FooterComponent
+    FooterComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
