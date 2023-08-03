@@ -1,0 +1,34 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+#sectionBusqueda {
+    display: flex;
+    width: 100%;
+    background-color: lightgrey;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+#busquedaBox {
+    display: flex;
+    background-color: grey;
+    width: 50%;
+}
+#busquedaInput {
+    width: 90%;
+}
+#busquedaButton {
+    width: 10%;
+    display: inline;
+}
+#busquedaButton:hover {
+    background-color: aquamarine;
+    cursor: pointer;
+}
+#filtroBox:hover {
+    cursor: pointer;
+}
