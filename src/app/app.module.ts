@@ -16,6 +16,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatIconModule } from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatCardModule,
     MatButtonModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
