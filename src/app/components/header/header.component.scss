@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 header{
     position: fixed;
     left: 0;
@@ -10,61 +14,67 @@ header{
     padding: 10px;
     justify-content: space-between;
     box-shadow: 0 4px 5px;
-    z-index: 1000;
+    z-index: 100;
     margin: 0 auto;
-    
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
+
 .logo{
     display: flex;
     align-items: center;
-}
-.logo img{
-    padding: 0;
-    height: 50px;
-    margin-right: 10px;
-}
-nav{
-    display: flex;
-    gap: 20px;
-    font-weight: 600;
+    
+    h2{
+        margin: 0;
+    }
+    img{
+        padding: 0;
+        height: 50px;
+        margin-right: 10px;
+    }
 }
 
-.open-menu,
-.close-menu{
+nav{
+    display: flex;
+    font-weight: 600;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    background-color: grey;
+    color: white;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.btn-menu {
+    display: block;
+    margin: 0 ;
+
+    &.btn-back  {
+        align-self: flex-end;
+    }
+}
+
+.closed-menu {
     display: none;
 }
 
-    nav{
-       flex-direction: column;
-       position: fixed;
-       left: 0;
-       top: 0;
-       width: 100%;
-       align-items: center;
-       background-color: grey;
-       color: white;
-       overflow-y: auto;
-       display: none;
-       opacity: 0;
-
-    }
-    .open-menu,
-.close-menu{
-    display: block;
-    margin: 0 20px;
-}
-.close-menu{
-    align-self: flex-end;
-    cursor: pointer;
-}
 .opened-menu{
-    opacity: 1;
-    pointer-events: all;
+    display: flex;
+}
+
+.link-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 

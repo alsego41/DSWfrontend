@@ -4,17 +4,18 @@
         <h2 class="nombre-de-la-empresa">CHOZAS ROSARIO
         </h2>
     </a>
-    <button class="open-menu" aria-label="Abrir menu">
-        
+    <button class="btn-menu" aria-label="Abrir menu">
         <mat-icon svgIcon="menu" aria-hidden="false" aria-label="menu icon"></mat-icon>     
     </button>
-    <nav class="menu">
-        <button class="close-menu" aria-label="Cerrar menu">
+    <nav id="menu" class="closed-menu">
+        <button class="btn-menu btn-back" aria-label="Cerrar menu">
             <mat-icon svgIcon="cruz" aria-hidden="false" aria-label="cruz icon"></mat-icon>
         </button>
-        <a href="" class="nav-link">SOBRE NOSOTROS</a>
-        <a href="" class="nav-link">CONTACTO</a>
-        <a href="" class="nav-link">USUARIO</a>
+        <div class="link-container">
+            <a href="" class="nav-link">SOBRE NOSOTROS</a>
+            <a href="" class="nav-link">CONTACTO</a>
+            <a href="" class="nav-link">USUARIO</a>
+        </div>
     </nav> 
 </header>
 
