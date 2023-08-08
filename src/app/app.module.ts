@@ -9,8 +9,10 @@ import { SearchComponent } from './components/search/search.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { PropertyDetailsComponent } from './components/property-details/property-details.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatIconModule } from '@angular/material/icon';
@@ -25,7 +27,8 @@ import {MatChipsModule} from '@angular/material/chips';
     SearchComponent,
     CardsComponent,
     FooterComponent,
-    FilterComponent
+    FilterComponent,
+    PropertyDetailsComponent
   ],
   imports: [
     BrowserModule,
