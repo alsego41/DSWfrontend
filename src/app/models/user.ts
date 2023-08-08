@@ -5,5 +5,7 @@ export interface User {
     dni: Number
     email: String
     address: String
+    password: String
+    birthDate: Date
     bankAccount: String
 }
