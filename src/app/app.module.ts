@@ -9,6 +9,7 @@ import { SearchComponent } from './components/search/search.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { PropertyDetailsComponent } from './components/property-details/property-details.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
@@ -24,7 +25,7 @@ import{MatInputModule} from '@angular/material/input';
 import{MatSelectModule} from '@angular/material/select';
 import{MatRadioModule} from '@angular/material/radio';
 import{MatDatepickerModule} from '@angular/material/datepicker';
-import { UserComponent } from './user/user.component';
+import { UserComponent } from './components/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,10 @@ import { UserComponent } from './user/user.component';
     CardsComponent,
     FooterComponent,
     FilterComponent,
-    UserComponent
+    UserComponent,
+
+    PropertyDetailsComponent,
+
   ],
   imports: [
     BrowserModule,
