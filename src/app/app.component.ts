@@ -17,6 +17,7 @@ export class AppComponent {
     firstName:[''],
     lastName:[''],
     address:[''],
+    DNI: [''],
     dob:[''],
     document:[''],
     mail:[''],

@@ -12,6 +12,9 @@ export class UserComponent {
   profileForm = this.formBuilder.group({
     firstName: [''],
     lastName: [''],
+    DNI: [''],
+    mail: [''],
+    passwor:[''],
     address: [''],
     dob: [''],
     gender: ['']
