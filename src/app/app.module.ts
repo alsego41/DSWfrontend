@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatChipsModule} from '@angular/material/chips';
     CardsComponent,
     FooterComponent,
     FilterComponent,
-    PropertyDetailsComponent
+    PropertyDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
