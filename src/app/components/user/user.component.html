@@ -7,19 +7,19 @@
         <div class="row">
           <div class="col-md-6">
             <mat-form-field class="full-width">
-              <input formcontrolname="firstName" matinput="" placeholder="First name">
+              <input formcontrolname="firstName" matinput="" placeholder="NOMBRE">
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field class="full-width">
-              <input formcontrolname="lastName" matinput="" placeholder="Last name">
+              <input formcontrolname="lastName" matinput="" placeholder="APELLIDO">
             </mat-form-field>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-6">
             <mat-form-field class="full-width">
-              <textarea formcontrolname="address" matinput="" placeholder="Address"></textarea>
+              <textarea formcontrolname="address" matinput="" placeholder="DIRECCION"></textarea>
             </mat-form-field>
           </div>
           <div class="col-sm-6">
@@ -29,28 +29,25 @@
           </div>
           <div class="col-sm-6">
             <mat-form-field class="full-width">
-              <textarea formcontrolname="mail" matinput="" placeholder="mail"></textarea>
+              <textarea formcontrolname="mail" matinput="" placeholder="MAIL"></textarea>
             </mat-form-field>
           </div>
           <div class="col-sm-6">
             <mat-form-field class="full-width">
-              <textarea formcontrolname="password" matinput="" placeholder="password"></textarea>
+              <textarea formcontrolname="password" matinput="" placeholder="CONTRASEÑA"></textarea>
             </mat-form-field>
           </div>
-          <div class="col-md-6 top-padding">
-                <mat-form-field class="full-width" appearance="fill">
-                    <mat-label>Select DOB</mat-label>
-                    <input formControlName="dob" matInput [matDatepicker]="picker">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>                  
+          <div class="col-sm-6">
+            <mat-form-field class="full-width">
+              <textarea formcontrolname="Date of birthday" matinput="" placeholder="DD/MM/AAAA"></textarea>
+            </mat-form-field>                 
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <mat-radio-group formcontrolname="gender" class="margin-left">
-                    <mat-radio-button value="male"> Male </mat-radio-button>
-                    <mat-radio-button value="female"> Female </mat-radio-button>
+                    <mat-radio-button value="male"> MASCULINO </mat-radio-button>
+                    <mat-radio-button value="female"> FEMENINO </mat-radio-button>
                 </mat-radio-group>
             </div>
         </div>

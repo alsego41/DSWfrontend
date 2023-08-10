@@ -28,6 +28,8 @@ import{MatSelectModule} from '@angular/material/select';
 import{MatRadioModule} from '@angular/material/radio';
 import{MatDatepickerModule} from '@angular/material/datepicker';
 import { UserComponent } from './components/user/user.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { UserComponent } from './components/user/user.component';
     PropertyDetailsComponent,
     HomeComponent,
     UserComponent,
+    AboutUsComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
