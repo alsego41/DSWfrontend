@@ -12,14 +12,22 @@ import { FilterComponent } from './components/filter/filter.component';
 import { PropertyDetailsComponent } from './components/property-details/property-details.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatIconModule } from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
+
 import { HomeComponent } from './components/home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import{MatInputModule} from '@angular/material/input';
+import{MatSelectModule} from '@angular/material/select';
+import{MatRadioModule} from '@angular/material/radio';
+import{MatDatepickerModule} from '@angular/material/datepicker';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +38,8 @@ import { HomeComponent } from './components/home/home.component';
     FooterComponent,
     FilterComponent,
     PropertyDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +51,17 @@ import { HomeComponent } from './components/home/home.component';
     MatCardModule,
     MatButtonModule,
     MatChipsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

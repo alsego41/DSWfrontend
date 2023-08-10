@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Property } from './models/property';
+
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,17 @@ import { Property } from './models/property';
 
 export class AppComponent {
   title = 'dswfe';
+  constructor(private formBuilder:FormBuilder){}
+
+  profileForm = this.formBuilder.group({
+    firstName:[''],
+    lastName:[''],
+    address:[''],
+    dob:[''],
+    document:[''],
+    mail:[''],
+    password:[''],
+  })
 
   
   
