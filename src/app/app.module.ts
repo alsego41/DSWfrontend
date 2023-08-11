@@ -14,6 +14,8 @@ import { FilterComponent } from './components/filter/filter.component';
 import { PropertyDetailsComponent } from './components/property-details/property-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserComponent } from './components/user/user.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -30,6 +32,8 @@ import { MaterialModule } from './material.module';
     PropertyDetailsComponent,
     HomeComponent,
     UserComponent,
+    AboutUsComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
