@@ -1,1 +1,15 @@
-<p>property-details works!</p>
+<mat-card class="card"> 
+    <img mat-card-image [src]="Property?.photo" alt="Imagen de la casa" class="card-img">
+    <mat-card-header class="card-header">{{ Property?.nameProperty }}</mat-card-header>
+    <mat-card-content class="card-content">{{ Property?.zone }}</mat-card-content>
+    <mat-card-content class="card-filter">
+        <mat-chip-set>
+            <mat-chip>{{Property?.m2}}m2</mat-chip>
+            <mat-chip>{{Property?.roomQty}} Habitaciones</mat-chip>
+            <mat-chip>{{Property?.bathQty}} Baños</mat-chip>
+        </mat-chip-set>
+    </mat-card-content>
+    <mat-card-actions class="card-actions">
+        <mat-card-footer class="card-footer">Precio</mat-card-footer>
+    </mat-card-actions>
+</mat-card>

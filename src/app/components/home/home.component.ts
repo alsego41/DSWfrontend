@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Property } from 'src/app/models/property';
+import { Component, inject } from '@angular/core';
+import { Property } from '../../models/property';
+import { PropertyService } from '../../services/property.service';
 
 @Component({
   selector: 'app-home',
@@ -7,76 +8,10 @@ import { Property } from 'src/app/models/property';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  testProperties: Property[] = [
-    {
-      idProperty: 102,
-      nameProperty: "Casa elegante Barrio España",
-      statusProperty: "Disponible",
-      photo: "./assets/testcasa.jpg",
-      address: "Buenos Aires 132",
-      zone: "España",
-      m2: 40,
-      spaces: 3,
-      roomQty: 2,
-      bathQty: 1,
-      backyard: true,
-      grill: false
-    },
-    {
-      idProperty: 103,
-      nameProperty: "Casa elegante Barrio Martin",
-      statusProperty: "Disponible",
-      photo: "./assets/testcasa.jpg",
-      address: "Buenos Aires 132",
-      zone: "Martin",
-      m2: 50,
-      spaces: 3,
-      roomQty: 2,
-      bathQty: 1,
-      backyard: true,
-      grill: false
-    },
-    {
-      idProperty: 104,
-      nameProperty: "Casa elegante Barrio Banana",
-      statusProperty: "Disponible",
-      photo: "./assets/testcasa.jpg",
-      address: "Buenos Aires 132",
-      zone: "Banana",
-      m2: 30,
-      spaces: 3,
-      roomQty: 2,
-      bathQty: 1,
-      backyard: true,
-      grill: false
-    },
-    {
-      idProperty: 105,
-      nameProperty: "Casa elegante Barrio Urquiza",
-      statusProperty: "Disponible",
-      photo: "./assets/testcasa.jpg",
-      address: "Buenos Aires 132",
-      zone: "Urquiza",
-      m2: 40,
-      spaces: 3,
-      roomQty: 2,
-      bathQty: 1,
-      backyard: true,
-      grill: false
-    },
-    {
-      idProperty: 106,
-      nameProperty: "Casa elegante Barrio Chascomus",
-      statusProperty: "Disponible",
-      photo: "./assets/testcasa.jpg",
-      address: "Buenos Aires 132",
-      zone: "Chascomus",
-      m2: 40,
-      spaces: 3,
-      roomQty: 2,
-      bathQty: 1,
-      backyard: true,
-      grill: false
-    },
-  ]
+  testProperties: Property[] = []
+  propertyService: PropertyService = inject(PropertyService)
+
+  constructor() {
+    this.testProperties = this.propertyService.getAllProperties()
+  }
 }
