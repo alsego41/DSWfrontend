@@ -12,7 +12,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: "property", 
+    path: "property/:id", 
     component: PropertyDetailsComponent, 
     pathMatch: 'full'
   },
