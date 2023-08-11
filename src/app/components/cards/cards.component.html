@@ -12,7 +12,11 @@
         </mat-card-content>
         <mat-card-actions class="card-actions">
             <mat-card-footer class="card-footer">Precio</mat-card-footer>
-            <button mat-raised-button class="card-moreinfo">Más info...</button>
+            <a routerLink="/property/{{Property.idProperty}}">
+                <button mat-raised-button class="card-moreinfo">
+                    Más info...
+                </button>
+            </a>
         </mat-card-actions>
     </mat-card>
 </div>
