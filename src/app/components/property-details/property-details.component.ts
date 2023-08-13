@@ -16,6 +16,6 @@ export class PropertyDetailsComponent {
 
   constructor(){
     this.propertyId = Number(this.route.snapshot.params['id'])
-    this.Property = this.propertyService.getPropertyById(this.propertyId)
+    this.propertyService.getPropertyById(this.propertyId).subscribe(data => this.Property = data)
   }
 }
