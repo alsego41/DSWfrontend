@@ -1,91 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Property } from '../models/property';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PropertyService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  baseUrl: String = 'http://localhost:3000'
 
-  testProperties: Property[] = [
-    {
-      idProperty: 102,
-      nameProperty: "Casa elegante Barrio España",
-      statusProperty: "Disponible",
-      photo: "./assets/testcasa.jpg",
-      address: "Buenos Aires 132",
-      zone: "España",
-      m2: 40,
-      spaces: 3,
-      roomQty: 2,
-      bathQty: 1,
-      backyard: true,
-      grill: false
-    },
-    {
-      idProperty: 103,
-      nameProperty: "Casa elegante Barrio Martin",
-      statusProperty: "Disponible",
-      photo: "./assets/testcasa.jpg",
-      address: "Buenos Aires 132",
-      zone: "Martin",
-      m2: 50,
-      spaces: 3,
-      roomQty: 2,
-      bathQty: 1,
-      backyard: true,
-      grill: false
-    },
-    {
-      idProperty: 104,
-      nameProperty: "Casa elegante Barrio Banana",
-      statusProperty: "Disponible",
-      photo: "./assets/testcasa.jpg",
-      address: "Buenos Aires 132",
-      zone: "Banana",
-      m2: 30,
-      spaces: 3,
-      roomQty: 2,
-      bathQty: 1,
-      backyard: true,
-      grill: false
-    },
-    {
-      idProperty: 105,
-      nameProperty: "Casa elegante Barrio Urquiza",
-      statusProperty: "Disponible",
-      photo: "./assets/testcasa.jpg",
-      address: "Buenos Aires 132",
-      zone: "Urquiza",
-      m2: 40,
-      spaces: 3,
-      roomQty: 2,
-      bathQty: 1,
-      backyard: true,
-      grill: false
-    },
-    {
-      idProperty: 106,
-      nameProperty: "Casa elegante Barrio Chascomus",
-      statusProperty: "Disponible",
-      photo: "./assets/testcasa.jpg",
-      address: "Buenos Aires 132",
-      zone: "Chascomus",
-      m2: 40,
-      spaces: 3,
-      roomQty: 2,
-      bathQty: 1,
-      backyard: true,
-      grill: false
-    },
-  ]
-
-  getAllProperties(): Property[] {
-    return this.testProperties
+  getAllProperties() : Observable<Property[]> {
+    return this.http.get<Property[]>(`${this.baseUrl}/property`)
   }
 
-  getPropertyById(id : Number): Property | undefined {
-    return this.testProperties.find(property => property.idProperty === id)
+  getPropertyById(id: Number): Observable<Property> {
+    return this.http.get<Property>(`${this.baseUrl}/property/${id}`)
   }
 }

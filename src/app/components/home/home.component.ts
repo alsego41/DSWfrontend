@@ -8,10 +8,10 @@ import { PropertyService } from '../../services/property.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  testProperties: Property[] = []
+  properties: Property[] = []
   propertyService: PropertyService = inject(PropertyService)
 
   constructor() {
-    this.testProperties = this.propertyService.getAllProperties()
+    this.propertyService.getAllProperties().subscribe(data => this.properties = data)
   }
 }
