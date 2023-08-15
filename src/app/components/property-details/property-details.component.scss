@@ -1,0 +1,45 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 90px 0 20px;
+}
+.card {
+    width: 90%;
+    border: 1px solid lightgray;
+    padding: 20px;
+}
+.card-img {
+    width: 100%;
+}
+.card-header{
+    padding: 20px 0;
+    font-size: 24px;
+}
+.card-content {
+    padding: 5px 0;
+    font-size: 18px;
+}
+.card-filter{
+    padding: 5px 0;
+
+}
+.card-footer {
+    // padding: 5px 0;
+    font-size: 24px;
+    text-align: end;
+}
+.card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+.card-moreinfo {
+    padding: 15px;
+    font-size: 14px;
+    text-decoration: underline;
+    background-color: transparent;
+    border: none;
+}
