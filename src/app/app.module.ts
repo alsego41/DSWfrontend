@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { UserComponent } from './components/user/user.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -36,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     UserComponent,
     AboutUsComponent,
     ContactComponent,
+    RegisterUserComponent,
   ],
   imports: [
     BrowserModule,
