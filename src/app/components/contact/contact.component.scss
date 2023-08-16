@@ -1,0 +1,32 @@
+.container{
+    padding: 20% 0;
+    background-color: aqua;
+    text-align: center;
+    
+}
+.logoig{
+
+   justify-content: flex-end;
+   padding: 10px 0;
+   
+}
+
+.logotwitter{
+    justify-content: flex-end;
+    padding: 10px 0;
+}
+.formulario{
+flex-direction: column;
+   display: flex;
+   padding: 10px;
+   input,textarea{
+    display: block;
+   margin: 0.5rem 0;
+   }
+
+    
+}
+.form-button{
+    display: block;
+}
+
