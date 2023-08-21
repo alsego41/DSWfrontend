@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-user',
+  selector: 'app-register-user',
   templateUrl: './register-user.component.html',
   styleUrls: ['./register-user.component.scss']
 })

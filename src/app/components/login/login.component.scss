@@ -1,0 +1,31 @@
+.card-form {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.input-form {
+    width: 100%;
+}
+
+.auth-false {
+    background-color: rgb(255, 149, 149);
+    border: 1px solid red;
+}
+
+.auth-true {
+    background-color: rgb(88, 219, 88);
+    border: 1px solid green;
+}
+
+.fetched-false {
+    display: none;
+}
+
+.fetched-true {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
