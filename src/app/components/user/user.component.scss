@@ -1,15 +1,16 @@
-.full-width{
-    width: 100%;
+.user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
-.top-padding{
-    padding-top: 3px;
+.login-form {
+    width: 90%;
+    margin-top: 100px;
 }
 
-.margin-left mat-radio-button:not(:first-child){
-    margin-left:10px;
-}
-
-.form-container{
-    margin: 100px 0;
+.btn-register {
+    width: 90%;
 }
