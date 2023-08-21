@@ -4,7 +4,8 @@ import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
+  host: {'class': 'user-comp'}
 })
 export class UserComponent {
   constructor(private formBuilder: FormBuilder) {}

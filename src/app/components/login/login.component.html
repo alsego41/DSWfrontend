@@ -1,0 +1,25 @@
+<form [formGroup]="loginForm" class="form-container">
+    <mat-card class="card-form">
+      <mat-card-header>
+        <mat-card-title>Inicio de Sesión</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field class="input-form">
+              <input formControlName="email" type="mail" matInput placeholder="MAIL">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field class="input-form">
+              <input type="password" formControlName="password" matInput placeholder="CONTRASEÑA">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+          <button (click)="onSubmit()" mat-raised-button color="primary">Iniciar Sesión</button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+<mat-card-content class="fetched-{{fetched}} auth-{{userStatus}}">{{userStatus ? "Inicio de sesión exitoso" : "Email o contraseña incorrecta"}}</mat-card-content>
