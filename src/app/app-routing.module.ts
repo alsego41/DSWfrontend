@@ -6,6 +6,7 @@ import { UserComponent } from './components/user/user.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { NewPropertyComponent } from './components/new-property/new-property.component';
 
 const routes: Routes = [
   {
@@ -17,28 +18,36 @@ const routes: Routes = [
     component: PropertyDetailsComponent, 
     pathMatch: 'full'
   },
-{
-  path: "user",
-  component: UserComponent,
-  pathMatch: 'full'
-},
-{
-  path: "user/register",
-  component: RegisterUserComponent,
-  pathMatch: "full"
-},
-{
-  path: "about-us",
-  component: AboutUsComponent,
-  pathMatch: 'full'
-},
-{
-  path: "contact",
-  component: ContactComponent,
-  pathMatch: 'full'
-}
-  
-  
+  {
+    path: "user",
+    component: UserComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: "user/register",
+    component: RegisterUserComponent,
+    pathMatch: "full"
+  },
+  // {
+  //   path: "user/properties",
+  //   component: PropertyListComponent,
+  //   pathMatch: "full"
+  // },
+  {
+    path: "user/properties/new",
+    component: NewPropertyComponent,
+    pathMatch: "full"
+  },
+  {
+    path: "about-us",
+    component: AboutUsComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: "contact",
+    component: ContactComponent,
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
