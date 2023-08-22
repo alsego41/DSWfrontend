@@ -18,6 +18,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { LoginComponent } from './components/login/login.component';
+import { NewPropertyComponent } from './components/new-property/new-property.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -40,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContactComponent,
     RegisterUserComponent,
     LoginComponent,
+    NewPropertyComponent,
   ],
   imports: [
     BrowserModule,
