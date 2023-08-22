@@ -1,4 +1,4 @@
-<form [formGroup]="profileForm" class="form-container">
+<form [formGroup]="registerForm" class="form-container">
     <mat-card>
       <mat-card-header>
         <mat-card-title>Profile Information</mat-card-title>
@@ -7,34 +7,34 @@
         <div class="row">
           <div class="col-md-6">
             <mat-form-field class="full-width">
-              <input formcontrolname="firstName" matInput placeholder="NOMBRE">
+              <input formControlName="firstName" matInput placeholder="NOMBRE">
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field class="full-width">
-              <input formcontrolname="lastName" matInput placeholder="APELLIDO">
+              <input formControlName="lastName" matInput placeholder="APELLIDO">
             </mat-form-field>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-6">
             <mat-form-field class="full-width">
-              <textarea formcontrolname="address" matInput placeholder="DIRECCION"></textarea>
+              <input type="text" formControlName="address" matInput placeholder="DIRECCION">
             </mat-form-field>
           </div>
           <div class="col-sm-6">
             <mat-form-field class="full-width">
-              <textarea formcontrolname="DNI" matInput placeholder="DNI"></textarea>
+              <input type="number" formControlName="DNI" matInput placeholder="DNI">
             </mat-form-field>
           </div>
           <div class="col-sm-6">
             <mat-form-field class="full-width">
-              <textarea formcontrolname="mail" matInput placeholder="MAIL"></textarea>
+              <input type="text" formControlName="email" matInput placeholder="MAIL">
             </mat-form-field>
           </div>
           <div class="col-sm-6">
             <mat-form-field class="full-width">
-              <textarea formcontrolname="password" matInput placeholder="CONTRASEÑA"></textarea>
+              <input type="password" formControlName="password" matInput placeholder="CONTRASEÑA">
             </mat-form-field>
           </div>
           <div class="col-md-6 top-padding">
@@ -48,7 +48,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <mat-radio-group formcontrolname="gender" class="margin-left">
+                <mat-radio-group formControlName="gender" class="margin-left">
                     <mat-radio-button value="male"> MASCULINO </mat-radio-button>
                     <mat-radio-button value="female"> FEMENINO </mat-radio-button>
                 </mat-radio-group>

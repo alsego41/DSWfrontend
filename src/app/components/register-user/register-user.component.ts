@@ -9,17 +9,26 @@ import { FormBuilder } from '@angular/forms';
 export class RegisterUserComponent {
   constructor(private formBuilder: FormBuilder) {}
 
-  profileForm = this.formBuilder.group({
+  registerForm = this.formBuilder.group({
     firstName: [''],
     lastName: [''],
     DNI: [''],
-    mail: [''],
-    passwor:[''],
+    email: [''],
+    password:[''],
     address: [''],
     dob: [''],
     gender: ['']
   });
+  newUserUrl = "http://localhost:3000/user/register"
   onSubmit() {
-    console.log('form data is ', this.profileForm.value);
+    console.log('form data is ', this.registerForm.value);
+    fetch(this.newUserUrl, {
+      method: "POST",
+      body: JSON.stringify(this.registerForm.value),
+      headers: {"Content-type": "application/json; charset=UTF-8"}
+    })
+      .then(res => res.json())
+      .then(json => console.log(json))
+      .catch(err => console.log(err))
    }
  }
