@@ -1,8 +1,20 @@
-<div id="sectionBusqueda">
-    <div id="busquedaBox">
-        <input type="text" name="busqueda" id="busquedaInput" placeholder="Hotel, ciudad o provincia">
-        <button id="busquedaButton">
-            <mat-icon svgIcon="search" aria-hidden="false" aria-label="Search icon"></mat-icon>
-        </button>
-    </div>
-</div>
+<form>
+    <mat-form-field>
+        <mat-label>
+            Cities
+        </mat-label>
+        <input type="text"
+                matInput
+                [formControl]="control"
+                [matAutocomplete]="auto"
+                >
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                  <mat-option *ngFor="let city of filcities | async" [value]="city">
+                    {{city}}
+                  </mat-option>
+
+                </mat-autocomplete>
+
+    </mat-form-field>
+
+</form>

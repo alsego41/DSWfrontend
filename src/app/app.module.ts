@@ -26,6 +26,8 @@ import { MaterialModule } from './material.module';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatAutocompleteModule} from '@angular/material/autocomplete';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    MatAutocompleteModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
