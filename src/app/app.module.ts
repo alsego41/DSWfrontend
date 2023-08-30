@@ -27,6 +27,8 @@ import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -53,8 +55,11 @@ import { MatAutocompleteModule} from '@angular/material/autocomplete';
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    MatAutocompleteModule
-    
+    MatAutocompleteModule,
+    MatInputModule,
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
