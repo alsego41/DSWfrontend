@@ -7,6 +7,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { NewPropertyComponent } from './components/new-property/new-property.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
@@ -21,12 +22,21 @@ const routes: Routes = [
   {
     path: "user",
     component: UserComponent,
-    pathMatch: 'full'
-  },
-  {
-    path: "user/register",
-    component: RegisterUserComponent,
-    pathMatch: "full"
+    children: [
+      {
+        path: "register",
+        component: RegisterUserComponent,
+        // pathMatch: "full"
+      },
+      {
+        path: "login",
+        component: LoginComponent
+      },
+      // {
+      //   path: "",
+      //   component: UserDashboardComponent
+      // }
+    ]
   },
   // {
   //   path: "user/properties",
