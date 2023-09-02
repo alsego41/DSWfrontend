@@ -27,6 +27,12 @@ export class LoginComponent {
     })
       .then(res => res.json())
       .then(json => {
+        console.log(json)
+        if (json.status){
+          localStorage.setItem("token", json.token)
+          console.log("Token guardado")
+          console.log(json.token)
+        }
         this.userStatus = json.status
         this.fetched = true
       })
