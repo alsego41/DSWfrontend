@@ -44,16 +44,6 @@ const routes: Routes = [
     path: "login",
     component: LoginComponent
   },
-  // {
-  //   path: "user/properties",
-  //   component: PropertyListComponent,
-  //   pathMatch: "full"
-  // },
-  // {
-  //   path: "user/properties/new",
-  //   component: NewPropertyComponent,
-  //   pathMatch: "full"
-  // },
   {
     path: "about-us",
     component: AboutUsComponent,
