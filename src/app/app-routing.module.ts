@@ -8,6 +8,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { NewPropertyComponent } from './components/new-property/new-property.component';
 import { LoginComponent } from './components/login/login.component';
+import { authGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -22,31 +23,26 @@ const routes: Routes = [
   {
     path: "user",
     component: UserComponent,
+    canActivate: [authGuard],
     children: [
       {
-        path: "register",
-        component: RegisterUserComponent,
-        // pathMatch: "full"
+        path: "properties",
+        // component: PropertyListComponent
+        component: UserComponent
       },
       {
-        path: "login",
-        component: LoginComponent
-      },
-      // {
-      //   path: "",
-      //   component: UserDashboardComponent
-      // }
+        path: "properties/new",
+        component: NewPropertyComponent
+      }
     ]
   },
-  // {
-  //   path: "user/properties",
-  //   component: PropertyListComponent,
-  //   pathMatch: "full"
-  // },
   {
-    path: "user/properties/new",
-    component: NewPropertyComponent,
-    pathMatch: "full"
+    path: "register",
+    component: RegisterUserComponent,
+  },
+  {
+    path: "login",
+    component: LoginComponent
   },
   {
     path: "about-us",
