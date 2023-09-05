@@ -1,9 +1,9 @@
 <form>
-    <mat-form-field class="contorno">
+     <mat-form-field class="contorno">
         <mat-label>
             Busqueda
         </mat-label>
-        
+      
         <input class="barra" type="text"
                 matInput
                 [formControl]="control"
@@ -17,5 +17,27 @@
                 </mat-autocomplete>
 
     </mat-form-field>
-    
+    <div class="fechas">
+      <mat-form-field class="checkin">
+          <mat-label>CHECK IN</mat-label>
+          <input formControlName="doci" matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>     
+      <mat-form-field class="checkout" >
+        <mat-label>CHECK OUT</mat-label>
+        <input formControlName="docO" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>            
+  </div>
+  <div class="personas">
+    <mat-form-field>
+      <input formControlName="cantpersonas" matInput placeholder="PERSONAS">
+    </mat-form-field>
+  </div>
+  <button class="boton">
+    BUSCAR
+  </button>
+
 </form>

@@ -1,13 +1,14 @@
 .contorno{
-  margin: 20px auto;
-  padding: 60px 60px;
+  margin: 20px auto 0;
+  padding: 60px 10px 0;
   display: flex;
   justify-content: center;
+  
   
 }
 .barra{
   
-  margin: 20px auto;
+  margin: 15px auto;
   position: relative;
   font-weight: 400 !important;
   border: solid 1px white;
@@ -30,9 +31,42 @@ mat-tab-group {
      
    }
  }
- mat-form-field{
+
+ .fechas{
   display: flex;
-  margin: 50px 50px;
   justify-content: center;
+  width: auto;
+  padding: 0x 10px 20px;
+  
+ }
+
+ .checkin{
+  width: 100%;
+  margin-left: 0;
+  margin-right: 5px;
+ }
+
+ .checkout{
+width: 100%;
+  margin-right: 0;
+  margin-left: 5px;
  }
  
+ .personas{
+  display: flex;
+  justify-content: center;
+  }
+
+  .boton{
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+    cursor: pointer;
+    border: none;
+    padding: 16px 32px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    border-radius: 12px;
+    margin-left: 10px;
+  }
