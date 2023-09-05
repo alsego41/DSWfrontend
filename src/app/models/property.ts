@@ -11,4 +11,5 @@ export interface Property {
 	bathQty: Number
 	backyard: Boolean
 	grill: Boolean
+	user: String
 }
