@@ -19,7 +19,10 @@ export class PropertyService {
 		return this.http.get<Property>(`${this.baseUrl}/property/${id}`)
 	}
 
-	createProperty(body: Property): Observable<Property> {
-		return this.http.post<Property>(`${this.baseUrl}/property/new`, body)
+	createProperty(property: Property, token: String): Observable<Property> {
+		return this.http.post<Property>(`${this.baseUrl}/property/new`, {
+			property,
+			token,
+		})
 	}
 }
