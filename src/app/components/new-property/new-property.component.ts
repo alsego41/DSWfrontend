@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core'
 import { FormBuilder } from '@angular/forms'
 import { PropertyService } from 'src/app/services/property.service'
 import { Property } from 'src/app/models/property'
+import { UserService } from 'src/app/services/user.service'
 
 @Component({
 	selector: 'app-new-property',
@@ -23,6 +24,7 @@ export class NewPropertyComponent {
 	})
 	newProperty: Property
 	propertyService: PropertyService = inject(PropertyService)
+	userService: UserService = inject(UserService)
 	onSubmit() {
 		this.newProperty = {
 			_id: '',
@@ -37,14 +39,27 @@ export class NewPropertyComponent {
 			bathQty: Number(this.newPropertyForm.value.bathQty),
 			backyard: Boolean(this.newPropertyForm.value.backyard),
 			grill: Boolean(this.newPropertyForm.value.grill),
+			user: '',
 		}
-		this.propertyService.createProperty(this.newProperty).subscribe({
-			next(res) {
-				console.log(`Property ${res._id} creada`)
-			},
-			error(err) {
-				console.log(err)
-			},
-		})
+		let _this = this
+		this.propertyService
+			.createProperty(this.newProperty, localStorage.getItem('token') || '')
+			.subscribe({
+				next(res) {
+					_this.userService
+						.appendNewProperty(res._id, localStorage.getItem('token') || '')
+						.subscribe({
+							next(res) {
+								console.log(res)
+							},
+							error(err) {
+								console.log(err)
+							},
+						})
+				},
+				error(err) {
+					console.log(err)
+				},
+			})
 	}
 }
