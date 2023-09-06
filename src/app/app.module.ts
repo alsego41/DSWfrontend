@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input';
+import { TrendingCitiesComponent } from './components/trending-cities/trending-cities.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MatInputModule} from '@angular/material/input';
     RegisterUserComponent,
     LoginComponent,
     NewPropertyComponent,
+    TrendingCitiesComponent,
   ],
   imports: [
     BrowserModule,
