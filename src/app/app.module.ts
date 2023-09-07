@@ -26,6 +26,12 @@ import { MaterialModule } from './material.module';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
+import { TrendingCitiesComponent } from './components/trending-cities/trending-cities.component';
+import { PipesModule } from './pipes/pipes.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +48,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterUserComponent,
     LoginComponent,
     NewPropertyComponent,
+    TrendingCitiesComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,13 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    PipesModule,
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

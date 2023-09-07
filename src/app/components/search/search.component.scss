@@ -1,45 +1,72 @@
-*{
-    box-sizing: border-box;
+.contorno{
+  margin: 20px auto 0;
+  padding: 60px 10px 0;
+  display: flex;
+  justify-content: center;
+  
+  
 }
-body {
-    margin: 0;
-    padding: 0;
+.barra{
+  
+  margin: 15px auto;
+  position: relative;
+  font-weight: 400 !important;
+  border: solid 1px white;
+  border-radius: 2rem;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 100%;
+  box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.032),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.048),
+  0 100px 80px rgba(0, 0, 0, 0.08);
+  
+  
+   
 }
-#sectionBusqueda {
-    margin-top: 70px;
+mat-tab-group {
+   &.mat-tab-group.mat- primary .mat-ink-bar {
+     background-color: red;
+     
+   }
+ }
+
+ .fechas{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  padding: 0x 10px 20px;
+  
+ }
+
+ .checkin{
+  width: 100%;
+  margin-left: 0;
+  margin-right: 5px;
+ }
+
+ .checkout{
+width: 100%;
+  margin-right: 0;
+  margin-left: 5px;
+ }
+ 
+ .personas{
+  display: flex;
+  justify-content: center;
+  }
+
+  .boton{
     display: flex;
-    height: 15vh;
-    width: 100%;
-    // background-color: lightgrey;
-    align-items: center;
     justify-content: center;
-}
-#busquedaBox {
-    display: flex;
-    // background-color: grey;
-    width: 85%;
-}
-#busquedaInput {
-    height: 100%;
-    font-size: 18px;
-    padding: 15px;
-    width: 90%;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-     border-radius: 20px;
-     border: 1px solid gray;
-}
-#busquedaButton {
-    width: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-// hover solo para desktop
-#busquedaButton:hover {
-    background-color: aquamarine;
+    background-color: grey;
     cursor: pointer;
-}
-#filtroBox:hover {
-    cursor: pointer;
-}
+    border: none;
+    padding: 16px 32px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    border-radius: 12px;
+    margin-left: 10px;
+  }
