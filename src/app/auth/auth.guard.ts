@@ -7,7 +7,7 @@ export const authGuard: CanActivateFn = async (route, state) => {
 	console.log('authGuard#canActivate called')
 	const authService = inject(AuthService)
 	const router = inject(Router)
-	const authRes = await authService.login()
+	const authRes = await authService.verifyToken()
 	const redirectUrl = router.url
 	if (authRes) {
 		return true
