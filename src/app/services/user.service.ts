@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpResponse } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { LoginAuth, LoginBody } from '../models/login-auth'
+import { Property } from '../models/property'
 
 @Injectable({
 	providedIn: 'root',
@@ -19,5 +20,14 @@ export class UserService {
 			idProperty,
 			token,
 		})
+	}
+
+	getAllProperties(token: String): Observable<{ properties: Property[] }> {
+		return this.http.get<{ properties: Property[] }>(
+			`${this.baseUrl}/user/properties`,
+			{
+				headers: { Authorization: `Bearer ${token}` },
+			},
+		)
 	}
 }

@@ -1,16 +1,47 @@
 .user-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
 }
 
-.login-form {
-    width: 90%;
-    margin-top: 100px;
+.list-container {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+
+	h2 {
+		margin: 0;
+	}
+
+	.mdc-card {
+		flex-direction: row;
+
+		.card-info {
+			display: flex;
+			flex-direction: column;
+
+			.card-header {
+				padding: 10px 10px 5px;
+				font-size: 20px;
+			}
+
+			.card-content,
+			.card-filter {
+				padding: 5px 10px;
+			}
+
+			.card-actions {
+				justify-content: space-between;
+				padding: 5px 10px 10px;
+			}
+		}
+	}
 }
 
-.btn-register {
-    width: 90%;
+.btn {
+	width: 90%;
 }
