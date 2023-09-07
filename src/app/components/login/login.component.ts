@@ -1,35 +1,42 @@
-import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-
+import { Component, inject } from '@angular/core'
+import { FormBuilder, FormGroup } from '@angular/forms'
+import { UserService } from 'src/app/services/user.service'
+import { LoginAuth, LoginBody } from 'src/app/models/login-auth'
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+	selector: 'app-login',
+	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.scss'],
 })
-
 export class LoginComponent {
-  constructor(private formBuilder: FormBuilder) {}
-  loginForm = this.formBuilder.group({
-    email: [''],
-    password:['']
-  });
-  loginUrl = 'http://localhost:3000/user/login'
-  userStatus: Boolean = false
-  fetched: Boolean = false
+	constructor(private formBuilder: FormBuilder) {}
+	loginForm: FormGroup = this.formBuilder.group({
+		email: [''],
+		password: [''],
+	})
+	userStatus: Boolean = false
+	fetched: Boolean = false
+	userService: UserService = inject(UserService)
+	body: LoginBody
 
-  onSubmit() {
-    console.log('form data is ', this.loginForm.value);
-    fetch(this.loginUrl, {
-      method: "POST",
-      body: JSON.stringify(this.loginForm.value),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    })
-      .then(res => res.json())
-      .then(json => {
-        this.userStatus = json.status
-        this.fetched = true
-      })
-      .catch(err => console.log(err))
-   }
+	onSubmit() {
+		this.body = {
+			email: this.loginForm.value.email as string,
+			password: this.loginForm.value.password as string,
+		}
+		const _this = this
+		this.userService.login(this.body).subscribe({
+			next(response: LoginAuth) {
+				localStorage.setItem('token', response.token)
+				console.log('Token guardado')
+				_this.userStatus = true
+				_this.fetched = true
+			},
+			error(err) {
+				_this.userStatus = false
+				_this.fetched = true
+				console.log(err)
+			},
+		})
+	}
 }
