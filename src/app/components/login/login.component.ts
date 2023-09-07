@@ -14,7 +14,6 @@ export class LoginComponent {
 		email: [''],
 		password: [''],
 	})
-	loginUrl: string = 'http://localhost:3000/user/login'
 	userStatus: Boolean = false
 	fetched: Boolean = false
 	userService: UserService = inject(UserService)
