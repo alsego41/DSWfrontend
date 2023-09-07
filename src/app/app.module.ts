@@ -30,6 +30,7 @@ import { MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input';
 import { TrendingCitiesComponent } from './components/trending-cities/trending-cities.component';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { TrendingCitiesComponent } from './components/trending-cities/trending-c
     HttpClientModule,
     MatAutocompleteModule,
     MatInputModule,
+    PipesModule,
 
 
 

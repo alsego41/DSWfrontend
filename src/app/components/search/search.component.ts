@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import{ FormControl } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 const SEARCH_ICON = `
