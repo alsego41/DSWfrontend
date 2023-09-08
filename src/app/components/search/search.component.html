@@ -1,43 +1,59 @@
-<form>
-     <mat-form-field class="contorno">
-        <mat-label>
-            Busqueda
-        </mat-label>
-      
-        <input class="barra" type="text"
-                matInput
-                [formControl]="control"
-                [matAutocomplete]="auto"
-                >
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                  <mat-option *ngFor="let city of filcities | async" [value]="city">
-                    {{city}}
-                  </mat-option>
-
-                </mat-autocomplete>
-
-    </mat-form-field>
-    <div class="fechas">
-      <mat-form-field class="checkin">
-          <mat-label>CHECK IN</mat-label>
-          <input formControlName="doci" matInput [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>     
-      <mat-form-field class="checkout" >
-        <mat-label>CHECK OUT</mat-label>
-        <input formControlName="docO" matInput [matDatepicker]="picker">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>            
-  </div>
-  <div class="personas">
-    <mat-form-field>
-      <input formControlName="canthabitaciones" matInput placeholder="HABITACIONES">
-    </mat-form-field>
-  </div>
-  <button class="boton">
-    BUSCAR
-  </button>
-
+<form [formGroup]="searchForm">
+	<mat-form-field class="contorno">
+		<mat-label> Busqueda </mat-label>
+		<input
+			class="barra"
+			type="text"
+			matInput
+			[matAutocomplete]="auto"
+			formControlName="city"
+			[formControl]="cityInput"
+		/>
+		<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+			<mat-option *ngFor="let city of filcities | async" [value]="city">
+				{{ city }}
+			</mat-option>
+		</mat-autocomplete>
+	</mat-form-field>
+	<div class="fechas">
+		<mat-form-field class="checkin">
+			<mat-label>CHECK IN</mat-label>
+			<input
+				matInput
+				[matDatepicker]="pickerCheckIn"
+				formControlName="checkin"
+			/>
+			<mat-hint>MM/DD/YYYY</mat-hint>
+			<mat-datepicker-toggle
+				matSuffix
+				[for]="pickerCheckIn"
+			></mat-datepicker-toggle>
+			<mat-datepicker #pickerCheckIn></mat-datepicker>
+		</mat-form-field>
+		<mat-form-field class="checkout">
+			<mat-label>CHECK OUT</mat-label>
+			<input
+				matInput
+				[matDatepicker]="pickerCheckOut"
+				formControlName="checkout"
+			/>
+			<mat-hint>MM/DD/YYYY</mat-hint>
+			<mat-datepicker-toggle
+				matSuffix
+				[for]="pickerCheckOut"
+			></mat-datepicker-toggle>
+			<mat-datepicker #pickerCheckOut></mat-datepicker>
+		</mat-form-field>
+	</div>
+	<div class="personas">
+		<mat-form-field>
+			<input
+				formControlName="canthabitaciones"
+				matInput
+				placeholder="HABITACIONES"
+				formControlName="roomqty"
+			/>
+		</mat-form-field>
+	</div>
+	<button class="boton" mat-raised-button color="primary">BUSCAR</button>
 </form>
