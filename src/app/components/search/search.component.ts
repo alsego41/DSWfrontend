@@ -14,7 +14,7 @@ const SEARCH_ICON = `
 	styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-	title = 'material-test'
+	title = 'Busqueda'
 	cityInput = new FormControl()
 	filcities: Observable<string[]>
 
@@ -27,7 +27,6 @@ export class SearchComponent implements OnInit {
 			'search',
 			sanitizer.bypassSecurityTrustHtml(SEARCH_ICON),
 		)
-		console.log(cities.provincias[0].nombre)
 	}
 	searchForm = this.formBuilder.group({
 		city: [''],
@@ -39,7 +38,9 @@ export class SearchComponent implements OnInit {
 	ngOnInit(): void {
 		this.filcities = this.cityInput.valueChanges.pipe(
 			startWith(''),
-			map((input) => this._filter(input)),
+			map((input) => {
+				return this._filter(input)
+			}),
 		)
 	}
 	// Hecho sobre archivo de provincias, falta agregar las localidades -> cambiar luego nombres de las variables
@@ -47,19 +48,13 @@ export class SearchComponent implements OnInit {
 
 	private _filter(input: string): string[] {
 		const inputFormateado = input.toLocaleLowerCase()
-
+		let regex = new RegExp(`.*${inputFormateado}.*`, 'gi')
 		const filter = cities.provincias.filter((city) => {
-			// Se puede mejorar usando expresiones regulares (Regex)
-			// Sirve para poder buscar nombres que contengan las letras que ingresa el usuario y no solo segun como empieza el nombre
-			return city.nombre.toLocaleLowerCase().indexOf(inputFormateado) === 0
+			return regex.test(city.nombre.toLocaleLowerCase()) === true
 		})
-		// console.log(filter)
 		const nombres = filter.map((city) => {
 			return city.nombre
 		})
-		// console.log(nombres)
-		// Con slice limite a que solo muestre como maximo los primeros 5 resultados
-		// Para no alargar tanto la lista de opciones, asi que el user debe ser mas preciso
-		return nombres.slice(0, 5)
+		return nombres.slice(0, 10)
 	}
 }
