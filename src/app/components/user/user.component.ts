@@ -27,7 +27,7 @@ export class UserComponent implements AfterViewInit {
 		console.log('call to props')
 		const _this = this
 		this.userService
-			.getAllProperties(localStorage.getItem('token') || '')
+			.getUserProperties(localStorage.getItem('token') || '')
 			.subscribe({
 				next(value) {
 					_this.properties = value.properties
