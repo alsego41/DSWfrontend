@@ -34,6 +34,9 @@
 		</mat-card-actions>
 	</mat-card>
 </form>
+<button routerLink="/register" mat-raised-button color="secondary">
+	Registrarse
+</button>
 <mat-card-content class="fetched-{{ fetched }} auth-{{ userStatus }}">{{
 	userStatus ? 'Inicio de sesión exitoso' : 'Email o contraseña incorrecta'
 }}</mat-card-content>
