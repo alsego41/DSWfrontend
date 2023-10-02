@@ -25,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 
 import { MaterialModule } from './material.module'
-import { PipesModule } from './pipes.module'
+import { PipesModule } from './pipes.module';
+import { SnackbarComponent } from './components/snackbar/snackbar.component'
 
 @NgModule({
 	declarations: [
@@ -44,6 +45,7 @@ import { PipesModule } from './pipes.module'
 		LoginComponent,
 		NewPropertyComponent,
 		TrendingCitiesComponent,
+  SnackbarComponent,
 	],
 	imports: [
 		BrowserModule,
