@@ -26,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { MaterialModule } from './material.module'
 import { PipesModule } from './pipes.module';
-import { SnackbarComponent } from './components/snackbar/snackbar.component'
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { HowToBeAHostComponent } from './components/footer/how-to-be-a-host/how-to-be-a-host.component'
 
 @NgModule({
 	declarations: [
@@ -46,6 +47,7 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component'
 		NewPropertyComponent,
 		TrendingCitiesComponent,
   SnackbarComponent,
+  HowToBeAHostComponent,
 	],
 	imports: [
 		BrowserModule,
