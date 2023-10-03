@@ -16,28 +16,22 @@ const routes: Routes = [
 		component: HomeComponent,
 	},
 	{
+		path: 'property/:id/edit',
+		component: PropertyDetailsComponent,
+	},
+	{
 		path: 'property/:id',
 		component: PropertyDetailsComponent,
 	},
 	{
-		path: 'property/:id/edit',
-		component: PropertyDetailsComponent,
+		path: 'user/properties/new',
+		component: NewPropertyComponent,
+		canActivate: [authGuard],
 	},
 	{
 		path: 'user',
 		component: UserComponent,
 		canActivate: [authGuard],
-		children: [
-			{
-				path: 'properties',
-				// component: PropertyListComponent
-				component: UserComponent,
-			},
-			{
-				path: 'properties/new',
-				component: NewPropertyComponent,
-			},
-		],
 	},
 	{
 		path: 'register',
