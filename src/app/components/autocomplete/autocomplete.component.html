@@ -1,0 +1,22 @@
+<mat-form-field class="">
+	<input
+		type="text"
+		[placeholder]="placeholder"
+		matInput
+		[formControl]="locationControl"
+		[matAutocomplete]="auto"
+	/>
+	<mat-autocomplete
+		#auto="matAutocomplete"
+		(optionSelected)="updateMySelection($event)"
+	>
+		>
+		<mat-option
+			*ngFor="let location of filteredLocations | async"
+			[value]="location.nombre"
+			[id]="location.id"
+		>
+			{{ location.nombre }}
+		</mat-option>
+	</mat-autocomplete>
+</mat-form-field>
