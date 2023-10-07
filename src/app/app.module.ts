@@ -26,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { MaterialModule } from './material.module'
 import { PipesModule } from './pipes.module';
-import { SnackbarComponent } from './components/snackbar/snackbar.component'
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component'
 
 @NgModule({
 	declarations: [
@@ -46,6 +47,7 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component'
 		NewPropertyComponent,
 		TrendingCitiesComponent,
   SnackbarComponent,
+  AutocompleteComponent,
 	],
 	imports: [
 		BrowserModule,
