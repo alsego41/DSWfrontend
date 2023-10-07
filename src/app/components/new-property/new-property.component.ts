@@ -30,6 +30,10 @@ export class NewPropertyComponent {
 	newProperty: Property
 	propertyService: PropertyService = inject(PropertyService)
 	userService: UserService = inject(UserService)
+	provinceId: string = ''
+	selectProvince(event: string) {
+		this.provinceId = event
+	}
 
 	onSubmit() {
 		this.newProperty = {

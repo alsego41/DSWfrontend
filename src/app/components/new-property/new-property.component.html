@@ -20,24 +20,19 @@
 					placeholder="Dirección"
 				/>
 			</mat-form-field>
-			<!-- Autocomplete json file provinces -->
-			<mat-form-field>
-				<input
-					type="text"
-					formControlName="province"
-					matInput
-					placeholder="Provincia"
-				/>
-			</mat-form-field>
-			<!-- Autocomplete json file cities -->
-			<mat-form-field>
-				<input
-					type="text"
-					formControlName="city"
-					matInput
-					placeholder="Ciudad"
-				/>
-			</mat-form-field>
+
+			<app-autocomplete
+				[tipoFiltro]="'province'"
+				(selectedProvince)="selectProvince($event)"
+			></app-autocomplete>
+
+			<!-- https://docs.angular.lat/guide/inputs-outputs -->
+
+			<app-autocomplete
+				[tipoFiltro]="'city-by-province'"
+				[province]="provinceId"
+			></app-autocomplete>
+
 			<mat-form-field>
 				<input
 					type="text"
@@ -87,14 +82,7 @@
 				/>
 			</mat-form-field>
 			<!-- Select options estado -->
-			<mat-form-field>
-				<input class="barra" type="text" matInput [matAutocomplete]="auto" />
-			</mat-form-field>
-			<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-				<mat-option *ngFor="let city of ['Rosario']" [value]="city">
-					{{ city }}
-				</mat-option>
-			</mat-autocomplete>
+
 			<mat-form-field>
 				<input
 					type="text"
