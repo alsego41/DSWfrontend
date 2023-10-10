@@ -22,10 +22,10 @@ export class PropertyService {
 	createProperty(
 		property: Property,
 		province: { id: string; nombre: string },
-		city: { id: string; nombre: string },
+		city: { id: string; nombre: string; departamento: string },
 		token: String,
 	): Observable<Property> {
-		return this.http.post<Property>(`${this.baseUrl}/property/new`, {
+		return this.http.post<Property>(`${this.baseUrl}/sh/newprop`, {
 			property,
 			province,
 			city,
