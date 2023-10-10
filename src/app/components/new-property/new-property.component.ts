@@ -80,16 +80,7 @@ export class NewPropertyComponent {
 			)
 			.subscribe({
 				next(res) {
-					_this.userService
-						.appendNewProperty(res._id, localStorage.getItem('token') || '')
-						.subscribe({
-							next(res) {
-								console.log(res)
-							},
-							error(err) {
-								console.log(err)
-							},
-						})
+					console.log(res)
 				},
 				error(err) {
 					console.log(err)

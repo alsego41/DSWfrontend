@@ -16,13 +16,6 @@ export class UserService {
 		return this.http.post<LoginAuth>(`${this.baseUrl}/user/login`, body)
 	}
 
-	appendNewProperty(idProperty: String, token: String): Observable<Object> {
-		return this.http.patch<Object>(`${this.baseUrl}/user/properties/new`, {
-			idProperty,
-			token,
-		})
-	}
-
 	getUserProperties(token: String): Observable<{ properties: Property[] }> {
 		return this.http.get<{ properties: Property[] }>(
 			`${this.baseUrl}/user/properties`,
