@@ -30,9 +30,26 @@ export class NewPropertyComponent {
 	newProperty: Property
 	propertyService: PropertyService = inject(PropertyService)
 	userService: UserService = inject(UserService)
-	provinceId: string = ''
-	selectProvince(event: string) {
-		this.provinceId = event
+
+	provinceSelected = {
+		id: '',
+		nombre: '',
+	}
+	citySelected = {
+		id: '',
+		nombre: '',
+		departamento: '',
+	}
+
+	selectProvince(event: { id: string; nombre: string }) {
+		this.provinceSelected.id = event.id
+		this.provinceSelected.nombre = event.nombre
+	}
+	selectCity(event: { id: string; nombre: string; departamento: string }) {
+		// console.log(event)
+		this.citySelected.id = event.id
+		this.citySelected.nombre = event.nombre
+		this.citySelected.departamento = event.departamento
 	}
 
 	onSubmit() {
@@ -42,7 +59,7 @@ export class NewPropertyComponent {
 			statusProperty: this.newPropertyForm.value.state as string,
 			photo: '',
 			address: this.newPropertyForm.value.address as string,
-			city: this.newPropertyForm.value.city as string,
+			city: '',
 			zone: this.newPropertyForm.value.zone as string,
 			m2: Number(this.newPropertyForm.value.m2),
 			spaces: Number(this.newPropertyForm.value.spaces),
@@ -57,7 +74,8 @@ export class NewPropertyComponent {
 		this.propertyService
 			.createProperty(
 				this.newProperty,
-				this.newPropertyForm.value.province as string,
+				this.provinceSelected,
+				this.citySelected,
 				localStorage.getItem('token') || '',
 			)
 			.subscribe({
