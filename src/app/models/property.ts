@@ -4,6 +4,7 @@ export interface Property {
 	statusProperty: String
 	photo: String
 	address: String
+	city: String
 	zone: String
 	m2: Number
 	spaces: Number
@@ -11,5 +12,6 @@ export interface Property {
 	bathQty: Number
 	backyard: Boolean
 	grill: Boolean
+	price: Number
 	user: String
 }
