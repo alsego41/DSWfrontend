@@ -7206,7 +7206,7 @@
 		"departamento": "Saladillo",
 		"provincia": "Buenos Aires",
 		"provincia_id": "06",
-		"localidad_censal": "ílvarez de Toledo",
+		"localidad_censal": "Álvarez de Toledo",
 		"coordenadas": [-59.6292383440582, -35.6391609182127]
 	},
 	{
@@ -17632,7 +17632,7 @@
 	{
 		"nombre": "VILLA ANGELA",
 		"id": "22098030000",
-		"municipio": "Villa íngela",
+		"municipio": "Villa Ángela",
 		"departamento": "Mayor Luis J. Fontana",
 		"provincia": "Chaco",
 		"provincia_id": "22",
@@ -23132,11 +23132,11 @@
 	{
 		"nombre": "ALGARROBO DEL AGUILA",
 		"id": "42063010000",
-		"municipio": "Algarrobo del íguila",
+		"municipio": "Algarrobo del Águila",
 		"departamento": "Chical Co",
 		"provincia": "La Pampa",
 		"provincia_id": "42",
-		"localidad_censal": "Algarrobo del íguila",
+		"localidad_censal": "Algarrobo del Águila",
 		"coordenadas": [-67.1484015946157, -36.4011467185658]
 	},
 	{
@@ -24302,8 +24302,8 @@
 	{
 		"nombre": "PUNTA DE LOS LLANOS",
 		"id": "46056010000",
-		"municipio": "General íngel Vicente Peñaloza",
-		"departamento": "General íngel V. Peñaloza",
+		"municipio": "General Ángel Vicente Peñaloza",
+		"departamento": "General Ángel V. Peñaloza",
 		"provincia": "La Rioja",
 		"provincia_id": "46",
 		"localidad_censal": "Punta de los Llanos",
@@ -24312,8 +24312,8 @@
 	{
 		"nombre": "TAMA",
 		"id": "46056020000",
-		"municipio": "General íngel Vicente Peñaloza",
-		"departamento": "General íngel V. Peñaloza",
+		"municipio": "General Ángel Vicente Peñaloza",
+		"departamento": "General Ángel V. Peñaloza",
 		"provincia": "La Rioja",
 		"provincia_id": "46",
 		"localidad_censal": "Tama",
@@ -26026,7 +26026,7 @@
 		"departamento": "Rivadavia",
 		"provincia": "Mendoza",
 		"provincia_id": "50",
-		"localidad_censal": "Los írboles",
+		"localidad_censal": "Los Árboles",
 		"coordenadas": [-68.5759160345244, -33.1813162523339]
 	},
 	{
@@ -28262,11 +28262,11 @@
 	{
 		"nombre": "PIEDRA DEL AGUILA",
 		"id": "58028010000",
-		"municipio": "Piedra del íguila",
+		"municipio": "Piedra del Águila",
 		"departamento": "Collón Curá",
 		"provincia": "Neuquén",
 		"provincia_id": "58",
-		"localidad_censal": "Piedra del íguila",
+		"localidad_censal": "Piedra del Águila",
 		"coordenadas": [-70.077319578901, -40.0465538638606]
 	},
 	{
@@ -30746,7 +30746,7 @@
 		"departamento": "Cerrillos",
 		"provincia": "Salta",
 		"provincia_id": "66",
-		"localidad_censal": "Villa Los ílamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
+		"localidad_censal": "Villa Los Álamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
 		"coordenadas": [-65.4594268472934, -24.8630942974132]
 	},
 	{
@@ -30756,7 +30756,7 @@
 		"departamento": "Cerrillos",
 		"provincia": "Salta",
 		"provincia_id": "66",
-		"localidad_censal": "Villa Los ílamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
+		"localidad_censal": "Villa Los Álamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
 		"coordenadas": [-65.478464215737, -24.8774314408788]
 	},
 	{
@@ -30766,7 +30766,7 @@
 		"departamento": "Cerrillos",
 		"provincia": "Salta",
 		"provincia_id": "66",
-		"localidad_censal": "Villa Los ílamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
+		"localidad_censal": "Villa Los Álamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
 		"coordenadas": [-65.3991341395925, -24.8581686105385]
 	},
 	{
@@ -30776,7 +30776,7 @@
 		"departamento": "Cerrillos",
 		"provincia": "Salta",
 		"provincia_id": "66",
-		"localidad_censal": "Villa Los ílamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
+		"localidad_censal": "Villa Los Álamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
 		"coordenadas": [-65.466289926351, -24.8784306645047]
 	},
 	{
@@ -30786,7 +30786,7 @@
 		"departamento": "Cerrillos",
 		"provincia": "Salta",
 		"provincia_id": "66",
-		"localidad_censal": "Villa Los ílamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
+		"localidad_censal": "Villa Los Álamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
 		"coordenadas": [-65.3991341395925, -24.8581686105385]
 	},
 	{
@@ -30796,7 +30796,7 @@
 		"departamento": "Cerrillos",
 		"provincia": "Salta",
 		"provincia_id": "66",
-		"localidad_censal": "Villa Los ílamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
+		"localidad_censal": "Villa Los Álamos - El Congreso - Las Tunas - Los Pinares - Los Olmos",
 		"coordenadas": [-65.4641823560161, -24.8640287340554]
 	},
 	{
@@ -36352,11 +36352,11 @@
 	{
 		"nombre": "ALVAREZ",
 		"id": "82084030000",
-		"municipio": "ílvarez",
+		"municipio": "Álvarez",
 		"departamento": "Rosario",
 		"provincia": "Santa Fe",
 		"provincia_id": "82",
-		"localidad_censal": "ílvarez",
+		"localidad_censal": "Álvarez",
 		"coordenadas": [-60.8039626859935, -33.1306253585247]
 	},
 	{
@@ -36442,7 +36442,7 @@
 	{
 		"nombre": "EL CARAMELO",
 		"id": "82084120000",
-		"municipio": "ílvarez",
+		"municipio": "Álvarez",
 		"departamento": "Rosario",
 		"provincia": "Santa Fe",
 		"provincia_id": "82",
@@ -39706,7 +39706,7 @@
 		"departamento": "Silí­pica",
 		"provincia": "Santiago del Estero",
 		"provincia_id": "86",
-		"localidad_censal": "írraga",
+		"localidad_censal": "Árraga",
 		"coordenadas": [-64.2227939749583, -28.0530238668842]
 	},
 	{
