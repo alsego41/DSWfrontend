@@ -12,7 +12,9 @@ import { LocationService } from 'src/app/services/location.service'
 export class AutocompleteComponent implements OnInit {
 	locations: any[] = []
 	locationControl = new FormControl()
-	filteredLocations: Observable<{ id: string; nombre: string }[]>
+	filteredLocations: Observable<
+		{ id: string; nombre: string; departamento: string }[]
+	>
 
 	@Input()
 	tipoFiltro: string
@@ -30,15 +32,35 @@ export class AutocompleteComponent implements OnInit {
 	}
 
 	@Output()
-	selectedProvince: EventEmitter<string> = new EventEmitter<string>()
+	selectedProvince: EventEmitter<{ id: string; nombre: string }> =
+		new EventEmitter<{ id: string; nombre: string }>()
+
+	@Output()
+	selectedCity: EventEmitter<{
+		id: string
+		nombre: string
+		departamento: string
+	}> = new EventEmitter<{ id: string; nombre: string; departamento: string }>()
 
 	placeholder: string
 	constructor(private locationService: LocationService) {}
 
 	updateMySelection(event: any): any {
-		let valueSelected = event.option.id
-		// console.log(event)
-		this.selectedProvince.emit(valueSelected)
+		let valueId = event.option.id
+		let valueNombre = event.option.value
+		let valueDepartamento =
+			event.option._element.nativeElement.attributes['data-depto'].value
+		// console.log(event.option)
+		// console.log(valueDepartamento)
+		if (this.tipoFiltro === 'province') {
+			this.selectedProvince.emit({ id: valueId, nombre: valueNombre })
+		} else if (this.tipoFiltro === 'city-by-province') {
+			this.selectedCity.emit({
+				id: valueId,
+				nombre: valueNombre,
+				departamento: valueDepartamento,
+			})
+		}
 	}
 
 	ngOnInit(): void {
@@ -73,8 +95,11 @@ export class AutocompleteComponent implements OnInit {
 			return regex.test(city.nombre.toLocaleLowerCase()) === true
 		})
 		const nombres = filter.map((city) => {
-			let nom = city.nombre + ', ' + city.departamento
-			return { id: city.id, nombre: nom }
+			return {
+				id: city.id,
+				nombre: city.nombre,
+				departamento: city.departamento,
+			}
 		})
 		return nombres.slice(0, 10)
 	}
@@ -94,16 +119,17 @@ export class AutocompleteComponent implements OnInit {
 
 	// En vez de pasar solo el nombre de la provincia, pasar un objeto provincia que tenga su id y el nombre {id, nombre}
 	private _filterProvinces(value: string): any[] {
-		const inputFormateado = value.toLocaleLowerCase()
+		const inputFormateado = value
 		let regex = new RegExp(`.*${inputFormateado}.*`, 'gi')
 		const filter = this.locations.filter((prov) => {
-			return regex.test(prov.nombre.toLocaleLowerCase()) === true
+			if (regex.test(prov.nombre)) {
+				return prov
+			}
+			return regex.test(prov.nombre)
 		})
-		// console.log(filter)
 		const provincias = filter.map((prov) => {
-			return { id: prov.id, nombre: prov.nombre }
+			return { id: prov.id, nombre: prov.nombre, departamento: '' }
 		})
-		// console.log(nombres)
 		return provincias.slice(0, 10)
 	}
 }
