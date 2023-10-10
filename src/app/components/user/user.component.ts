@@ -1,26 +1,45 @@
-import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { AfterViewInit, Component, inject } from '@angular/core'
+import { FormBuilder } from '@angular/forms'
+import { Property } from 'src/app/models/property'
+import { UserService } from 'src/app/services/user.service'
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+	selector: 'app-user',
+	templateUrl: './user.component.html',
+	styleUrls: ['./user.component.scss'],
+	host: { class: 'user-comp' },
 })
-export class UserComponent {
-  constructor(private formBuilder: FormBuilder) {}
+export class UserComponent implements AfterViewInit {
+	constructor(private formBuilder: FormBuilder) {}
+	userService: UserService = inject(UserService)
+	properties: Property[] = []
+	profileForm = this.formBuilder.group({
+		firstName: [''],
+		lastName: [''],
+		DNI: [''],
+		mail: [''],
+		password: [''],
+		address: [''],
+		dob: [''],
+		gender: [''],
+	})
+	ngAfterViewInit(): void {
+		console.log('call to props')
+		const _this = this
+		this.userService
+			.getUserProperties(localStorage.getItem('token') || '')
+			.subscribe({
+				next(value) {
+					_this.properties = value.properties
+					console.log(_this.properties)
+				},
+				error(err) {
+					console.log(err)
+				},
+			})
+	}
 
-  profileForm = this.formBuilder.group({
-    firstName: [''],
-    lastName: [''],
-    DNI: [''],
-    mail: [''],
-    passwor:[''],
-    address: [''],
-    dob: [''],
-    gender: ['']
-  });
-  onSubmit() {
-    console.log('form data is ', this.profileForm.value);
-   }
- }
-
+	onSubmit() {
+		console.log('form data is ', this.profileForm.value)
+	}
+}

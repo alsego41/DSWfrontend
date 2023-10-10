@@ -1,19 +1,23 @@
 .container{
     background-color: rgb(145, 221, 186);
-    margin: 0;
+    margin-top: 70px;
     padding: 0;
     width: 100%;
 }
 
 .encabezado{
     background-color: rgb(145, 221, 186);
-    height: 50vh;
-    margin: 3% 0;
+   height: 50vh;
+    margin: 0;
     display: flex;
     justify-content: center;
     width: 100%;
     flex-direction: column;
     align-items: center;
+    img{
+        
+        width: 100%;
+    }
 }
 .cuerpo{
     
@@ -22,6 +26,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    font-weight: 400;
 }
 .fotos1{
     background-color: rgb(145, 221, 186);
@@ -38,6 +43,8 @@
     display: flex;
     justify-content: center;
     width: auto;
+    text-align: center;
+    
 }
 .fotos3{
     background-color: rgb(145, 221, 186);
@@ -50,16 +57,17 @@
 .end{
     background-color: rgb(145, 221, 186);
     text-align: right;
-    background-color: black;
-    color: aliceblue;
-    height: 100px;
+    background-color: grey;
+    color: black;
+    height: 50px;
     width: 100%;
     
     
 }
 
 h4{
-    margin-right: 50px;
-    padding:20px;
+    display: flex;
+    margin-right: 5px;
+    padding:10px;
     
 }

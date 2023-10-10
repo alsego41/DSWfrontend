@@ -1,11 +1,13 @@
 export interface User {
-    idUser: Number
-    firstName: String
-    lastName: String
-    dni: Number
-    email: String
-    address: String
-    password: String
-    birthDate: Date
-    bankAccount: String
+	_id: String
+	firstName: String
+	lastName: String
+	dni: Number
+	email: String
+	address: String
+	password: String
+	dob: Date
+	gender: String
+	bankAccount: String
+	properties: String[]
 }

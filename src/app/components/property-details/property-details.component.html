@@ -47,14 +47,25 @@
         <p class="prop-ubicacion">{{ Property?.address }}, Barrio {{ Property?.zone }}</p>
     </div>
     <div class="img-container">
-        <img mat-card-image [src]="Property?.photo" alt="Imagen de la casa" class="card-img">
+        <img [src]="Property?.photo" alt="Imagen de la casa" class="card-img">
     </div>
     <div class="details-container">
         <p class="prop-detail">{{Property?.m2}} m2</p>
         <p class="prop-detail">{{ Property?.spaces }} Ambientes</p>
         <p class="prop-detail">{{Property?.roomQty}} Habitaciones</p>
         <p class="prop-detail">{{Property?.bathQty}} Baños</p>
-        <p class="prop-detail">{{ Property?.backyard ? "Patio" : ""  }}</p>
-        <p class="prop-detail">{{ Property?.grill ? "Parrilla" : "" }}</p>
+        <p class="prop-detail detail-{{Property?.backyard}}">Patio</p>
+        <p class="prop-detail detail-{{Property?.grill}}">Parrilla</p>
+    </div>
+</div>
+<div class="booking-container">
+    <div class="booking-info">
+        <!-- precio, dias estadia, btn cambiar fechas, btn registrar reserva -->
+        <p class="booking-detail">Precio Total (Precio por noche)</p>
+        <p class="booking-detail">Fecha Inicio - Fecha Fin</p>
+        <div class="booking-btn-container">
+            <button mat-raised-button color="secondary">Cambiar fechas</button>
+            <button mat-raised-button color="primary">Registrar Reserva</button>
+        </div>
     </div>
 </div>

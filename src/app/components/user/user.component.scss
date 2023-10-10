@@ -1,15 +1,47 @@
-.full-width{
-    width: 100%;
+.user-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
 }
 
-.top-padding{
-    padding-top: 3px;
+.list-container {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+
+	h2 {
+		margin: 0;
+	}
+
+	.mdc-card {
+		flex-direction: row;
+
+		.card-info {
+			display: flex;
+			flex-direction: column;
+
+			.card-header {
+				padding: 10px 10px 5px;
+				font-size: 20px;
+			}
+
+			.card-content,
+			.card-filter {
+				padding: 5px 10px;
+			}
+
+			.card-actions {
+				justify-content: space-between;
+				padding: 5px 10px 10px;
+			}
+		}
+	}
 }
 
-.margin-left mat-radio-button:not(:first-child){
-    margin-left:10px;
-}
-
-.form-container{
-    margin: 100px;
+.btn {
+	width: 90%;
 }

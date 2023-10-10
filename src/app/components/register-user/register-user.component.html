@@ -1,1 +1,100 @@
-<p>register-user works!</p>
+<form [formGroup]="registerForm" class="form-container">
+	<mat-card>
+		<mat-card-header>
+			<mat-card-title>Profile Information</mat-card-title>
+		</mat-card-header>
+		<mat-card-content>
+			<div class="row">
+				<div class="col-md-6">
+					<mat-form-field class="full-width">
+						<input formControlName="firstName" matInput placeholder="NOMBRE" />
+					</mat-form-field>
+				</div>
+				<div class="col-md-6">
+					<mat-form-field class="full-width">
+						<input formControlName="lastName" matInput placeholder="APELLIDO" />
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<mat-form-field class="full-width">
+						<input
+							type="text"
+							formControlName="address"
+							matInput
+							placeholder="DIRECCION"
+						/>
+					</mat-form-field>
+				</div>
+				<div class="col-sm-6">
+					<mat-form-field class="full-width">
+						<input
+							type="number"
+							formControlName="dni"
+							matInput
+							placeholder="DNI"
+						/>
+					</mat-form-field>
+				</div>
+				<div class="col-sm-6">
+					<mat-form-field class="full-width">
+						<input
+							type="text"
+							formControlName="email"
+							matInput
+							placeholder="MAIL"
+						/>
+					</mat-form-field>
+				</div>
+				<div class="col-sm-6">
+					<mat-form-field class="full-width">
+						<input
+							type="password"
+							formControlName="password"
+							matInput
+							placeholder="CONTRASEÑA"
+						/>
+					</mat-form-field>
+				</div>
+				<div class="col-md-6 top-padding">
+					<mat-form-field class="full-width" appearance="fill">
+						<mat-label>FECHA DE NACIMIENTO</mat-label>
+						<input
+							formControlName="dob"
+							matInput
+							[matDatepicker]="picker"
+							[max]="maxDate"
+						/>
+						<mat-datepicker-toggle
+							matSuffix
+							[for]="picker"
+						></mat-datepicker-toggle>
+						<mat-datepicker #picker></mat-datepicker>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<mat-radio-group formControlName="gender" class="margin-left">
+						<mat-radio-button value="male"> MASCULINO </mat-radio-button>
+						<mat-radio-button value="female"> FEMENINO </mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</div>
+		</mat-card-content>
+		<mat-card-actions>
+			<button
+				(click)="onSubmit()"
+				class="{{ btnStatus }}"
+				mat-raised-button
+				color="primary"
+			>
+				Registrarse
+			</button>
+		</mat-card-actions>
+	</mat-card>
+</form>
+<button routerLink="/login" mat-raised-button color="secondary">
+	Iniciar Sesión
+</button>

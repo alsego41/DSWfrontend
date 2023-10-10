@@ -1,62 +1,44 @@
-<form [formGroup]="profileForm" class="form-container">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Profile Information</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="row">
-          <div class="col-md-6">
-            <mat-form-field class="full-width">
-              <input formcontrolname="firstName" matInput placeholder="NOMBRE">
-            </mat-form-field>
-          </div>
-          <div class="col-md-6">
-            <mat-form-field class="full-width">
-              <input formcontrolname="lastName" matInput placeholder="APELLIDO">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <mat-form-field class="full-width">
-              <textarea formcontrolname="address" matInput placeholder="DIRECCION"></textarea>
-            </mat-form-field>
-          </div>
-          <div class="col-sm-6">
-            <mat-form-field class="full-width">
-              <textarea formcontrolname="DNI" matInput placeholder="DNI"></textarea>
-            </mat-form-field>
-          </div>
-          <div class="col-sm-6">
-            <mat-form-field class="full-width">
-              <textarea formcontrolname="mail" matInput placeholder="MAIL"></textarea>
-            </mat-form-field>
-          </div>
-          <div class="col-sm-6">
-            <mat-form-field class="full-width">
-              <textarea formcontrolname="password" matInput placeholder="CONTRASEÑA"></textarea>
-            </mat-form-field>
-          </div>
-          <div class="col-md-6 top-padding">
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>SELECCIONAR FECHA DE NACIMIENTO</mat-label>
-                <input formControlName="dob" matInput [matDatepicker]="picker">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>                  
-        </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <mat-radio-group formcontrolname="gender" class="margin-left">
-                    <mat-radio-button value="male"> MASCULINO </mat-radio-button>
-                    <mat-radio-button value="female"> FEMENINO </mat-radio-button>
-                </mat-radio-group>
-            </div>
-        </div>
-      </mat-card-content>
-      <mat-card-actions>
-        <button (click)="onSubmit()" mat-raised-button color="primary">REGISTRARSE</button>
-      </mat-card-actions>
-    </mat-card>
-  </form>
+<div class="user-container">
+	<!-- User profile / foto, info personal, posibilidad de editar mostrar dentro de un desplegable -->
+	<!-- Lista de propiedades if not null-->
+	<!-- Lista de reservas if not null -->
+	<div class="list-container">
+		<h2>Mis Propiedades</h2>
+		<mat-card *ngFor="let props of properties">
+			<img
+				mat-card-md-image
+				[src]="props.photo"
+				alt="Imagen de la casa"
+				class="card-img"
+			/>
+			<div class="card-info">
+				<mat-card-header class="card-header">{{
+					props.nameProperty
+				}}</mat-card-header>
+				<mat-card-content class="card-content">{{
+					props.zone
+				}}</mat-card-content>
+				<mat-card-content class="card-filter">
+					<mat-chip-set>
+						<mat-chip>{{ props.m2 }}m2</mat-chip>
+						<mat-chip>{{ props.roomQty }} Habitaciones</mat-chip>
+						<mat-chip>{{ props.bathQty }} Baños</mat-chip>
+					</mat-chip-set>
+				</mat-card-content>
+				<mat-card-actions class="card-actions">
+					<mat-card-footer class="card-footer">Precio</mat-card-footer>
+					<a routerLink="/property/{{ props._id }}/edit">
+						<button mat-raised-button color="primary" class="card-moreinfo">
+							Editar Propiedad
+						</button>
+					</a>
+				</mat-card-actions>
+			</div>
+		</mat-card>
+	</div>
+	<div class="btn-container">
+		<a routerLink="./properties/new" class="btn">
+			<button mat-raised-button color="primary">Cargar nueva propiedad</button>
+		</a>
+	</div>
+</div>

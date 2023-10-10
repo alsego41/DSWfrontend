@@ -10,7 +10,8 @@ const xmark =
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  host: {'class': 'header-comp'}
 })
 
 export class HeaderComponent implements AfterViewInit{
@@ -22,12 +23,16 @@ export class HeaderComponent implements AfterViewInit{
   ngAfterViewInit(): void {
     let btn = document.querySelectorAll(".btn-menu")
     let nav = document.querySelector("#menu")
+    let links = document.querySelectorAll(".menu-link")
     btn.forEach(btn => {
-      btn.addEventListener('click', () => {
-        nav?.classList.toggle("closed-menu")
-        nav?.classList.toggle("opened-menu")
-      })
+      btn.addEventListener('click', () => handleClick())
     })
+    links.forEach(link => {
+      link.addEventListener('click', () => handleClick())
+    })
+    function handleClick() {
+      nav?.classList.toggle("closed-menu")
+      nav?.classList.toggle("opened-menu")
+    }
   }
-
 }
