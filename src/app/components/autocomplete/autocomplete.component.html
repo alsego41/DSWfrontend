@@ -10,13 +10,17 @@
 		#auto="matAutocomplete"
 		(optionSelected)="updateMySelection($event)"
 	>
-		>
 		<mat-option
 			*ngFor="let location of filteredLocations | async"
 			[value]="location.nombre"
 			[id]="location.id"
+			[attr.data-depto]="location.departamento"
 		>
-			{{ location.nombre }}
+			{{
+				location.departamento === ''
+					? location.nombre
+					: location.nombre + ', ' + location.departamento
+			}}
 		</mat-option>
 	</mat-autocomplete>
 </mat-form-field>
