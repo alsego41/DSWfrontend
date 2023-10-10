@@ -30,7 +30,8 @@
 
 			<app-autocomplete
 				[tipoFiltro]="'city-by-province'"
-				[province]="provinceId"
+				[province]="provinceSelected.id"
+				(selectedCity)="selectCity($event)"
 			></app-autocomplete>
 
 			<mat-form-field>
