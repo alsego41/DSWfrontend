@@ -27,7 +27,11 @@ import { HttpClientModule } from '@angular/common/http'
 import { MaterialModule } from './material.module'
 import { PipesModule } from './pipes.module';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
+
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component'
+
+import { HowToBeAHostComponent } from './components/footer/how-to-be-a-host/how-to-be-a-host.component'
+
 
 @NgModule({
 	declarations: [
@@ -47,7 +51,11 @@ import { AutocompleteComponent } from './components/autocomplete/autocomplete.co
 		NewPropertyComponent,
 		TrendingCitiesComponent,
   SnackbarComponent,
+
   AutocompleteComponent,
+
+  HowToBeAHostComponent,
+
 	],
 	imports: [
 		BrowserModule,

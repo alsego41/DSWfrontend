@@ -57,16 +57,17 @@
 .end{
     background-color: rgb(145, 221, 186);
     text-align: right;
-    background-color: black;
-    color: aliceblue;
-    height: 100px;
+    background-color: grey;
+    color: black;
+    height: 50px;
     width: 100%;
     
     
 }
 
 h4{
-    margin-right: 50px;
-    padding:20px;
+    display: flex;
+    margin-right: 5px;
+    padding:10px;
     
 }
