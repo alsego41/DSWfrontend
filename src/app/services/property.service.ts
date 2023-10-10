@@ -21,12 +21,14 @@ export class PropertyService {
 
 	createProperty(
 		property: Property,
-		province: String,
+		province: { id: string; nombre: string },
+		city: { id: string; nombre: string },
 		token: String,
 	): Observable<Property> {
 		return this.http.post<Property>(`${this.baseUrl}/property/new`, {
 			property,
 			province,
+			city,
 			token,
 		})
 	}
