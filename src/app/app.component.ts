@@ -1,29 +1,12 @@
-import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-
+import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-root',
-  
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+	selector: 'app-root',
+
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss'],
 })
-
 export class AppComponent {
-  title = 'dswfe';
-  constructor(private formBuilder:FormBuilder){}
-
-  profileForm = this.formBuilder.group({
-    firstName:[''],
-    lastName:[''],
-    address:[''],
-    DNI: [''],
-    dob:[''],
-    document:[''],
-    mail:[''],
-    password:[''],
-  })
-
-  
-  
+	title = 'GU Alquileres'
+	constructor() {}
 }
