@@ -9,7 +9,8 @@ import { catchError, retry } from 'rxjs/operators'
 })
 export class PropertyService {
 	constructor(private http: HttpClient) {}
-	baseUrl: String = 'https://gualquileres.onrender.com'
+	private baseUrl: string =
+		(import.meta.env.NG_APP_API_BASE_URL as string) || 'http://localhost:3000'
 
 	getAllProperties(): Observable<Property[]> {
 		return this.http.get<Property[]>(`${this.baseUrl}/property`)
