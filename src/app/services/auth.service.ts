@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core'
 })
 export class AuthService {
 	private token: String = localStorage.getItem('token') || ''
-	private baseUrl = 'http://localhost:3000'
+	private baseUrl = 'https://gualquileres.onrender.com/'
 
 	constructor() {}
 
