@@ -4,16 +4,17 @@ import { Injectable } from '@angular/core'
 	providedIn: 'root',
 })
 export class AuthService {
-	private token: String = localStorage.getItem('token') || ''
-	private baseUrl = 'https://gualquileres.onrender.com'
+	private baseUrl: string =
+		(import.meta.env.NG_APP_API_BASE_URL as string) || 'http://localhost:3000'
 
 	constructor() {}
 
 	async verifyToken() {
-		if (this.token) {
+		const token: String = localStorage.getItem('token') || ''
+		if (token) {
 			const res = await fetch(`${this.baseUrl}/user/verify`, {
 				method: 'POST',
-				body: JSON.stringify({ token: this.token }),
+				body: JSON.stringify({ token: token }),
 				headers: { 'Content-type': 'application/json; charset=UTF-8' },
 			})
 			if (res.status === 200) {

@@ -10,7 +10,8 @@ import { User } from '../models/user'
 })
 export class UserService {
 	constructor(private http: HttpClient) {}
-	baseUrl: String = 'https://gualquileres.onrender.com'
+	private baseUrl: string =
+		(import.meta.env.NG_APP_API_BASE_URL as string) || 'http://localhost:3000'
 
 	login(body: LoginBody): Observable<LoginAuth> {
 		return this.http.post<LoginAuth>(`${this.baseUrl}/user/login`, body)
