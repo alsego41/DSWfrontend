@@ -60,6 +60,7 @@ export class NewPropertyComponent {
 			photo: '',
 			address: this.newPropertyForm.value.address as string,
 			city: '',
+			province: '',
 			zone: this.newPropertyForm.value.zone as string,
 			m2: Number(this.newPropertyForm.value.m2),
 			spaces: Number(this.newPropertyForm.value.spaces),

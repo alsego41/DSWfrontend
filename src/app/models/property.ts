@@ -5,6 +5,7 @@ export interface Property {
 	photo: String
 	address: String
 	city: String
+	province: String
 	zone: String
 	m2: Number
 	spaces: Number
