@@ -1,4 +1,7 @@
 <div class="user-container">
+	<button mat-raised-button (click)="logout()" color="secondary" class="">
+		Cerrar Sesión
+	</button>
 	<!-- User profile / foto, info personal, posibilidad de editar mostrar dentro de un desplegable -->
 	<!-- Lista de propiedades if not null-->
 	<!-- Lista de reservas if not null -->
@@ -7,7 +10,7 @@
 		<mat-card *ngFor="let props of properties">
 			<img
 				mat-card-md-image
-				[src]="props.photo"
+				[src]="props.photo || './assets/casa.png'"
 				alt="Imagen de la casa"
 				class="card-img"
 			/>
@@ -15,9 +18,14 @@
 				<mat-card-header class="card-header">{{
 					props.nameProperty
 				}}</mat-card-header>
-				<mat-card-content class="card-content">{{
-					props.zone
-				}}</mat-card-content>
+				<mat-card-content class="card-content">
+					{{ props.address }}, {{ props.zone }}
+				</mat-card-content>
+
+				<!-- Traer properties ya populadas en city y province -->
+				<mat-card-content class="card-content">
+					{{ props.city }}, {{ props.province }}
+				</mat-card-content>
 				<mat-card-content class="card-filter">
 					<mat-chip-set>
 						<mat-chip>{{ props.m2 }}m2</mat-chip>
@@ -26,7 +34,9 @@
 					</mat-chip-set>
 				</mat-card-content>
 				<mat-card-actions class="card-actions">
-					<mat-card-footer class="card-footer">Precio</mat-card-footer>
+					<mat-card-footer class="card-footer"
+						>$ {{ props.price }}</mat-card-footer
+					>
 					<a routerLink="/property/{{ props._id }}/edit">
 						<button mat-raised-button color="primary" class="card-moreinfo">
 							Editar Propiedad
