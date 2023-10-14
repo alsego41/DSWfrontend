@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, inject } from '@angular/core'
 import { FormBuilder } from '@angular/forms'
+import { Router } from '@angular/router'
 import { Property } from 'src/app/models/property'
 import { UserService } from 'src/app/services/user.service'
 
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/services/user.service'
 	host: { class: 'user-comp' },
 })
 export class UserComponent implements AfterViewInit {
-	constructor(private formBuilder: FormBuilder) {}
+	constructor(private formBuilder: FormBuilder, private router: Router) {}
 	userService: UserService = inject(UserService)
 	properties: Property[] = []
 	profileForm = this.formBuilder.group({
@@ -41,5 +42,10 @@ export class UserComponent implements AfterViewInit {
 
 	onSubmit() {
 		console.log('form data is ', this.profileForm.value)
+	}
+
+	logout() {
+		localStorage.removeItem('token')
+		this.router.navigateByUrl('/')
 	}
 }
