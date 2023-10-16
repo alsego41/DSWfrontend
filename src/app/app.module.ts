@@ -30,7 +30,8 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component'
 
-import { HowToBeAHostComponent } from './components/footer/how-to-be-a-host/how-to-be-a-host.component'
+import { HowToBeAHostComponent } from './components/footer/how-to-be-a-host/how-to-be-a-host.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component'
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { HowToBeAHostComponent } from './components/footer/how-to-be-a-host/how-
   AutocompleteComponent,
 
   HowToBeAHostComponent,
+    UserProfileComponent,
 
 	],
 	imports: [
