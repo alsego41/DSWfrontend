@@ -20,7 +20,7 @@
     </mat-card>
 </div> -->
 
-    <!--    
+<!--    
         Nombre
         Direccion, Provincia
         Fotos 
@@ -42,30 +42,41 @@
      -->
 
 <div class="prop-container">
-    <div class="header-container">
-        <p class="prop-name">{{ Property?.nameProperty }}</p>
-        <p class="prop-ubicacion">{{ Property?.address }}, Barrio {{ Property?.zone }}</p>
-    </div>
-    <div class="img-container">
-        <img [src]="Property?.photo" alt="Imagen de la casa" class="card-img">
-    </div>
-    <div class="details-container">
-        <p class="prop-detail">{{Property?.m2}} m2</p>
-        <p class="prop-detail">{{ Property?.spaces }} Ambientes</p>
-        <p class="prop-detail">{{Property?.roomQty}} Habitaciones</p>
-        <p class="prop-detail">{{Property?.bathQty}} Baños</p>
-        <p class="prop-detail detail-{{Property?.backyard}}">Patio</p>
-        <p class="prop-detail detail-{{Property?.grill}}">Parrilla</p>
-    </div>
+	<div class="header-container">
+		<p class="prop-name">{{ Property?.nameProperty }}</p>
+		<p class="prop-ubicacion">
+			{{ Property?.address }}, Barrio {{ Property?.zone }}
+		</p>
+	</div>
+	<div class="img-container">
+		<img [src]="Property?.photo" alt="Imagen de la casa" class="card-img" />
+	</div>
+	<div class="details-container">
+		<p class="prop-detail">{{ Property?.m2 }} m2</p>
+		<p class="prop-detail">{{ Property?.spaces }} Ambientes</p>
+		<p class="prop-detail">{{ Property?.roomQty }} Habitaciones</p>
+		<p class="prop-detail">{{ Property?.bathQty }} Baños</p>
+		<p class="prop-detail detail-{{ Property?.backyard }}">Patio</p>
+		<p class="prop-detail detail-{{ Property?.grill }}">Parrilla</p>
+	</div>
 </div>
 <div class="booking-container">
-    <div class="booking-info">
-        <!-- precio, dias estadia, btn cambiar fechas, btn registrar reserva -->
-        <p class="booking-detail">Precio Total (Precio por noche)</p>
-        <p class="booking-detail">Fecha Inicio - Fecha Fin</p>
-        <div class="booking-btn-container">
-            <button mat-raised-button color="secondary">Cambiar fechas</button>
-            <button mat-raised-button color="primary">Registrar Reserva</button>
-        </div>
-    </div>
+	<div class="booking-info">
+		<!-- precio, dias estadia, btn cambiar fechas, btn registrar reserva -->
+		<p class="booking-detail">Precio Total (Precio por noche)</p>
+		<p class="booking-detail">Fecha Inicio - Fecha Fin</p>
+		<div class="booking-btn-container">
+			<button mat-raised-button color="secondary">Cambiar fechas</button>
+			<!-- <a [routerLink]="['/book', houseId]" [queryParams]="{ checkIn: '2023-10-20', checkOut: '2023-10-25' }">Book Now</a> -->
+
+			<button
+				routerLink="./booking"
+				[queryParams]="{ checkIn: '2023-10-20', checkOut: '2023-10-25' }"
+				mat-raised-button
+				color="primary"
+			>
+				Registrar Reserva
+			</button>
+		</div>
+	</div>
 </div>
