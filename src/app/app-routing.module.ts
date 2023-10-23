@@ -9,6 +9,7 @@ import { RegisterUserComponent } from './components/register-user/register-user.
 import { NewPropertyComponent } from './components/new-property/new-property.component'
 import { LoginComponent } from './components/login/login.component'
 import { authGuard } from './auth/auth.guard'
+import { PropertyBookingComponent } from './components/property-booking/property-booking.component'
 
 const routes: Routes = [
 	{
@@ -18,6 +19,10 @@ const routes: Routes = [
 	{
 		path: 'property/:id/edit',
 		component: PropertyDetailsComponent,
+	},
+	{
+		path: 'property/:id/booking',
+		component: PropertyBookingComponent,
 	},
 	{
 		path: 'property/:id',

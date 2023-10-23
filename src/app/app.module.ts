@@ -31,7 +31,8 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component'
 
 import { HowToBeAHostComponent } from './components/footer/how-to-be-a-host/how-to-be-a-host.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component'
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { PropertyBookingComponent } from './components/property-booking/property-booking.component'
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 
   HowToBeAHostComponent,
     UserProfileComponent,
+    PropertyBookingComponent,
 
 	],
 	imports: [
