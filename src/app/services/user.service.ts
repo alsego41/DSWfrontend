@@ -17,6 +17,11 @@ export class UserService {
 		return this.http.post<LoginAuth>(`${this.baseUrl}/user/login`, body)
 	}
 
+	logout(): void {
+		localStorage.removeItem('token')
+		return
+	}
+
 	getUserProperties(token: String): Observable<{ properties: Property[] }> {
 		return this.http.get<{ properties: Property[] }>(
 			`${this.baseUrl}/user/properties`,
