@@ -1,6 +1,80 @@
-.trends{
+.cards{
     display: flex;
-    justify-content:center;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    min-height: 100vh;
+    justify-content: space-between;
+    
+}
+.card1{
+    background-color: red;
+    position: relative;
+    margin-bottom: 50px;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px black;
+    width: 80vw;
+
 
 }
+.card2{
+    background-color: blue;
+    display: flex;
+    margin-bottom: 50px;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px black;
+    width: 80vw;
+}
+.card3{
+    background-color: yellow;
+    display: flex;
+    margin-bottom: 50px;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px black;
+    width: 80vw;
+    
+}
+.card4{
+    background-color:green;
+    display: flex;
+    margin-bottom: 50px;  
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px black;  
+    width: 80vw;
+}
+a{
+    text-decoration:none;
+}
 
+.card1 h1{
+    text-align: center;
+    color: black;
+    
+}
+.card2 h1{
+    text-align: center;
+    color: black;
+}
+.card3 h1{
+    text-align: center;
+    color: black;
+}
+.card4 h1{
+    text-align: center;
+    color: black;
+}
+
+img{
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    
+}
