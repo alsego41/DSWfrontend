@@ -26,6 +26,7 @@ export class SearchComponent implements OnInit {
 	cities: any[]
 	provinces: any[]
 	allLocations: any[]
+	selectedLocation: any
 
 	constructor(
 		iconRegistry: MatIconRegistry,
@@ -39,7 +40,7 @@ export class SearchComponent implements OnInit {
 		)
 	}
 	searchForm = this.formBuilder.group({
-		city: [''],
+		locationInput: [''],
 		checkin: [''],
 		checkout: [''],
 		roomqty: [''],
@@ -75,5 +76,33 @@ export class SearchComponent implements OnInit {
 
 	public handleSearch() {
 		console.log(this.searchForm.value)
+		console.log(this.selectedLocation)
+	}
+
+	updateMySelection(event: any): any {
+		console.log('entro')
+		let valueId = event.option.id
+		let valueNombre = event.option.value
+		let valueDepartamento =
+			event.option._element.nativeElement.attributes['data-depto']?.value || ''
+		let valueIdProv =
+			event.option._element.nativeElement.attributes['data-idprov']?.value || ''
+		let valueTipo =
+			event.option._element.nativeElement.attributes['data-tipo'].value
+		if (valueTipo === 'province') {
+			this.selectedLocation = {
+				id: valueId,
+				name: valueNombre,
+				type: valueTipo,
+			}
+		} else {
+			this.selectedLocation = {
+				id: valueId,
+				name: valueNombre,
+				departamento: valueDepartamento,
+				idProv: valueIdProv,
+				type: valueTipo,
+			}
+		}
 	}
 }

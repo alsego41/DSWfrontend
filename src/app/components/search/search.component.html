@@ -9,13 +9,18 @@
 			formControlName="locationInput"
 			[formControl]="locationInput"
 		/>
-		<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+		<mat-autocomplete
+			autoActiveFirstOption
+			#auto="matAutocomplete"
+			(optionSelected)="updateMySelection($event)"
+		>
 			<mat-option
 				*ngFor="let location of filteredLocations | async"
 				[value]="location.nombre"
 				[id]="location.id"
 				[attr.data-depto]="location.departamento"
 				[attr.data-tipo]="location.centroide ? 'province' : 'city'"
+				[attr.data-idprov]="location.centroide ? '' : location.provincia_id"
 			>
 				{{
 					location.centroide
