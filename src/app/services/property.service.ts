@@ -26,6 +26,29 @@ export class PropertyService {
 		})
 	}
 
+	getPropertiesByProvince(search: {
+		province: any
+		booking: any
+	}): Observable<Property[]> {
+		return this.http.post<Property[]>(
+			`${this.baseUrl}/sh/availProps/province`,
+			{
+				province: search.province,
+				booking: search.booking,
+			},
+		)
+	}
+
+	getPropertiesByCity(search: {
+		city: any
+		booking: any
+	}): Observable<Property[]> {
+		return this.http.post<Property[]>(`${this.baseUrl}/sh/availProps/city`, {
+			city: search.city,
+			booking: search.booking,
+		})
+	}
+
 	createProperty(
 		property: Property,
 		province: { id: string; nombre: string },
