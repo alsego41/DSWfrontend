@@ -10,11 +10,16 @@ import { NewPropertyComponent } from './components/new-property/new-property.com
 import { LoginComponent } from './components/login/login.component'
 import { authGuard } from './auth/auth.guard'
 import { PropertyBookingComponent } from './components/property-booking/property-booking.component'
+import { CardsComponent } from './components/cards/cards.component'
 
 const routes: Routes = [
 	{
 		path: '',
 		component: HomeComponent,
+	},
+	{
+		path: 'results',
+		component: CardsComponent,
 	},
 	{
 		path: 'property/:id/edit',
