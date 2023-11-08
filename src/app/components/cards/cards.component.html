@@ -1,5 +1,5 @@
 <div class="card-container">
-	<mat-card class="card">
+	<mat-card class="card" *ngFor="let Property of searchData">
 		<img
 			mat-card-image
 			[src]="Property.photo"
@@ -21,7 +21,13 @@
 		</mat-card-content>
 		<mat-card-actions class="card-actions">
 			<mat-card-footer class="card-footer">Precio</mat-card-footer>
-			<a routerLink="/property/{{ Property._id }}">
+			<a
+				routerLink="/property/{{ Property._id }}"
+				[queryParams]="{
+					checkIn: bookingInfo.checkInExp,
+					checkOut: bookingInfo.checkOutExp
+				}"
+			>
 				<button mat-raised-button class="card-moreinfo">Más info...</button>
 			</a>
 		</mat-card-actions>

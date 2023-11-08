@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core'
+import { ActivatedRoute, Router } from '@angular/router'
 import { Property } from 'src/app/models/property'
 
 @Component({
@@ -7,6 +8,12 @@ import { Property } from 'src/app/models/property'
 	styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent {
-	constructor() {}
-	@Input() Property!: Property
+	searchData: Property[]
+	bookingInfo: any
+	constructor(private router: Router, private route: ActivatedRoute) {
+		this.route.queryParams.subscribe((params) => {
+			this.searchData = JSON.parse(params['data']).propsFiltered
+			this.bookingInfo = JSON.parse(params['booking'])
+		})
+	}
 }
