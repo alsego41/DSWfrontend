@@ -64,14 +64,14 @@
 	<div class="booking-info">
 		<!-- precio, dias estadia, btn cambiar fechas, btn registrar reserva -->
 		<p class="booking-detail">Precio Total (Precio por noche)</p>
-		<p class="booking-detail">Fecha Inicio - Fecha Fin</p>
+		<p class="booking-detail">{{ checkIn | date }} - {{ checkOut | date }}</p>
 		<div class="booking-btn-container">
 			<button mat-raised-button color="secondary">Cambiar fechas</button>
 			<!-- <a [routerLink]="['/book', houseId]" [queryParams]="{ checkIn: '2023-10-20', checkOut: '2023-10-25' }">Book Now</a> -->
 
 			<button
 				routerLink="./booking"
-				[queryParams]="{ checkIn: '2023-10-20', checkOut: '2023-10-25' }"
+				[queryParams]="{ checkIn, checkOut }"
 				mat-raised-button
 				color="primary"
 			>

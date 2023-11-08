@@ -13,9 +13,15 @@ export class PropertyDetailsComponent {
 	propertyId: String
 	propertyService: PropertyService = inject(PropertyService)
 	Property: Property | undefined
+	checkIn: any
+	checkOut: any
 
 	constructor() {
-		this.propertyId = this.route.snapshot.params['id']
+		this.route.queryParams.subscribe((params) => {
+			this.propertyId = this.route.snapshot.params['id']
+			this.checkIn = params['checkIn']
+			this.checkOut = params['checkOut']
+		})
 		this.propertyService
 			.getPropertyById(this.propertyId)
 			.subscribe((data) => (this.Property = data))
