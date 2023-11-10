@@ -5,50 +5,17 @@
 	<!-- User profile / foto, info personal, posibilidad de editar mostrar dentro de un desplegable -->
 	<!-- Lista de propiedades if not null-->
 	<!-- Lista de reservas if not null -->
-	<div class="list-container">
-		<h2>Mis Propiedades</h2>
-		<mat-card *ngFor="let props of properties">
-			<img
-				mat-card-md-image
-				[src]="props.photo || './assets/casa.png'"
-				alt="Imagen de la casa"
-				class="card-img"
-			/>
-			<div class="card-info">
-				<mat-card-header class="card-header">{{
-					props.nameProperty
-				}}</mat-card-header>
-				<mat-card-content class="card-content">
-					{{ props.address }}, {{ props.zone }}
-				</mat-card-content>
-
-				<!-- Traer properties ya populadas en city y province -->
-				<mat-card-content class="card-content">
-					{{ props.city }}, {{ props.province }}
-				</mat-card-content>
-				<mat-card-content class="card-filter">
-					<mat-chip-set>
-						<mat-chip>{{ props.m2 }}m2</mat-chip>
-						<mat-chip>{{ props.roomQty }} Habitaciones</mat-chip>
-						<mat-chip>{{ props.bathQty }} Baños</mat-chip>
-					</mat-chip-set>
-				</mat-card-content>
-				<mat-card-actions class="card-actions">
-					<mat-card-footer class="card-footer"
-						>$ {{ props.price }}</mat-card-footer
-					>
-					<a routerLink="/property/{{ props._id }}/edit">
-						<button mat-raised-button color="primary" class="card-moreinfo">
-							Editar Propiedad
-						</button>
-					</a>
-				</mat-card-actions>
-			</div>
-		</mat-card>
-	</div>
 	<div class="btn-container">
-		<a routerLink="./properties/new" class="btn">
-			<button mat-raised-button color="primary">Cargar nueva propiedad</button>
-		</a>
+		<button
+			mat-raised-button
+			routerLink="./ownerlist"
+			color="secondary"
+			class=""
+		>
+			Ver mis propiedades
+		</button>
+		<button mat-raised-button routerLink="./properties/new" color="primary">
+			Cargar nueva propiedad
+		</button>
 	</div>
 </div>
