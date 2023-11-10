@@ -13,7 +13,7 @@ import { FooterComponent } from './components/footer/footer.component'
 import { FilterComponent } from './components/filter/filter.component'
 import { PropertyDetailsComponent } from './components/property-details/property-details.component'
 import { HomeComponent } from './components/home/home.component'
-import { UserComponent } from './components/user/user.component'
+import { UserComponent } from './components/user/user-home/user.component'
 import { AboutUsComponent } from './components/about-us/about-us.component'
 import { ContactComponent } from './components/contact/contact.component'
 import { RegisterUserComponent } from './components/register-user/register-user.component'
@@ -25,16 +25,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 
 import { MaterialModule } from './material.module'
-import { PipesModule } from './pipes.module';
-import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { PipesModule } from './pipes.module'
+import { SnackbarComponent } from './components/snackbar/snackbar.component'
 
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component'
 
-import { HowToBeAHostComponent } from './components/footer/how-to-be-a-host/how-to-be-a-host.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { PropertyBookingComponent } from './components/property-booking/property-booking.component';
+import { HowToBeAHostComponent } from './components/footer/how-to-be-a-host/how-to-be-a-host.component'
+import { UserProfileComponent } from './components/user/user-profile/user-profile.component'
+import { PropertyBookingComponent } from './components/property-booking/property-booking.component'
 import { PropertyOwnerlistComponent } from './components/property/property-ownerlist/property-ownerlist.component'
-
 
 @NgModule({
 	declarations: [
@@ -53,15 +52,14 @@ import { PropertyOwnerlistComponent } from './components/property/property-owner
 		LoginComponent,
 		NewPropertyComponent,
 		TrendingCitiesComponent,
-  SnackbarComponent,
+		SnackbarComponent,
 
-  AutocompleteComponent,
+		AutocompleteComponent,
 
-  HowToBeAHostComponent,
-    UserProfileComponent,
-    PropertyBookingComponent,
-    PropertyOwnerlistComponent,
-
+		HowToBeAHostComponent,
+		UserProfileComponent,
+		PropertyBookingComponent,
+		PropertyOwnerlistComponent,
 	],
 	imports: [
 		BrowserModule,

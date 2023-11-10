@@ -1,7 +1,12 @@
 <div class="user-container">
-	<button mat-raised-button (click)="logout()" color="secondary" class="">
-		Cerrar Sesión
-	</button>
+	<div class="btn-container">
+		<button mat-raised-button routerLink="./profile" color="secondary" class="">
+			Ir a mi perfil
+		</button>
+		<button mat-raised-button (click)="logout()" color="secondary" class="">
+			Cerrar Sesión
+		</button>
+	</div>
 	<!-- User profile / foto, info personal, posibilidad de editar mostrar dentro de un desplegable -->
 	<!-- Lista de propiedades if not null-->
 	<!-- Lista de reservas if not null -->
