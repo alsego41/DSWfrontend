@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component'
 import { authGuard } from './auth/auth.guard'
 import { PropertyBookingComponent } from './components/property-booking/property-booking.component'
 import { CardsComponent } from './components/cards/cards.component'
+import { PropertyOwnerlistComponent } from './components/property/property-ownerlist/property-ownerlist.component'
 
 const routes: Routes = [
 	{
@@ -36,6 +37,11 @@ const routes: Routes = [
 	{
 		path: 'user/properties/new',
 		component: NewPropertyComponent,
+		canActivate: [authGuard],
+	},
+	{
+		path: 'user/ownerlist',
+		component: PropertyOwnerlistComponent,
 		canActivate: [authGuard],
 	},
 	{
