@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
+import { BookingService } from 'src/app/services/booking.service'
 
 @Component({
 	selector: 'app-property-booking',
@@ -11,22 +12,39 @@ export class PropertyBookingComponent implements OnInit {
 	checkOut: string
 	propertyId: string
 	userId: string
-	constructor(private route: ActivatedRoute, private router: Router) {}
+	constructor(
+		private route: ActivatedRoute,
+		private router: Router,
+		private bookingService: BookingService,
+	) {}
 
 	ngOnInit() {
-		// Retrieve query parameters
 		this.route.queryParams.subscribe((params) => {
 			this.propertyId = this.route.snapshot.params['id']
 			this.checkIn = params['checkIn']
 			this.checkOut = params['checkOut']
 			this.userId = localStorage.getItem('token') || ''
 		})
-		console.log(this.checkIn)
-		console.log(this.checkOut)
+		// console.log(this.checkIn)
+		// console.log(this.checkOut)
 
 		// call service get property
 		// call service get user
 
 		// after payment, go to confirmation page
+	}
+
+	createBooking() {
+		this.bookingService
+			.createBooking({
+				checkIn: this.checkIn,
+				checkOut: this.checkOut,
+				propertyId: this.propertyId,
+			})
+			.subscribe((data) => {
+				this.router.navigateByUrl('/user/bookings')
+				console.log(data)
+				// display snackbar
+			})
 	}
 }
