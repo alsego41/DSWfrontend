@@ -1,0 +1,42 @@
+<div class="list-container">
+	<h2>Mis Reservas</h2>
+	<mat-card *ngFor="let booking of bookingList">
+		<img
+			mat-card-md-image
+			[src]="booking._id || './assets/casa.png'"
+			alt="Imagen de la casa"
+			class="card-img"
+		/>
+		<div class="card-info">
+			<mat-card-header class="card-header">{{ booking._id }}</mat-card-header>
+			<mat-card-content class="card-content">
+				{{ booking._id }}, {{ booking._id }}
+			</mat-card-content>
+
+			<!-- Traer properties ya populadas en city y province -->
+			<mat-card-content class="card-content">
+				{{ booking._id }}, {{ booking._id }}
+			</mat-card-content>
+			<mat-card-content class="card-filter">
+				<mat-chip-set>
+					<mat-chip>{{ booking._id }}m2</mat-chip>
+					<mat-chip>{{ booking._id }} Habitaciones</mat-chip>
+					<mat-chip>{{ booking._id }} Baños</mat-chip>
+				</mat-chip-set>
+			</mat-card-content>
+			<mat-card-actions class="card-actions">
+				<mat-card-footer class="card-footer"
+					>$ {{ booking._id }}</mat-card-footer
+				>
+				<!-- <a routerLink="/property/{{ booking._id }}/edit">
+					<button mat-raised-button color="primary" class="card-moreinfo">
+						Editar Propiedad
+					</button>
+				</a> -->
+			</mat-card-actions>
+		</div>
+	</mat-card>
+	<!-- <button mat-raised-button routerLink="../properties/new" color="primary">
+		Cargar nueva propiedad
+	</button> -->
+</div>
