@@ -73,7 +73,10 @@ export class SearchComponent implements OnInit {
 		const inputFormateado = input.toLocaleLowerCase()
 		let regex = new RegExp(`.*${inputFormateado}.*`, 'gi')
 		const locations = this.allLocations.filter((location) => {
-			return regex.test(location.nombre.toLocaleLowerCase()) === true
+			if (regex.test(location.nombre.toLocaleLowerCase())) {
+				return location
+			}
+			return regex.test(location.nombre.toLocaleLowerCase())
 		})
 		return locations.slice(0, 30)
 	}
