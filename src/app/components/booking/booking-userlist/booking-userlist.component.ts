@@ -12,6 +12,9 @@ export class BookingUserlistComponent implements AfterViewInit {
 	bookingList: Booking[] = []
 
 	ngAfterViewInit(): void {
-		this.bookingService.getUserBookings().subscribe((data) => console.log(data))
+		this.bookingService.getUserBookings().subscribe((data) => {
+			console.log(data)
+			this.bookingList = data
+		})
 	}
 }
