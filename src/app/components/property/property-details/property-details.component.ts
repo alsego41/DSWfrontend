@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { PropertyService } from '../../services/property.service'
-import { Property } from '../../models/property'
+import { PropertyService } from '../../../services/property.service'
+import { Property } from '../../../models/property'
 
 @Component({
 	selector: 'app-property-details',
