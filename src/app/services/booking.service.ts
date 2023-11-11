@@ -20,16 +20,17 @@ export class BookingService {
 	}
 
 	createBooking(info: {
-		checkIn: Date
-		checkOut: Date
+		checkIn: string
+		checkOut: string
 		propertyId: string
 	}): Observable<Booking> {
 		const token = localStorage.getItem('token') || ''
-		return this.http.post<Booking>(`${this.baseUrl}/booking/new`, {
+		return this.http.post<Booking>(`${this.baseUrl}/sh/newBooking`, {
 			booking: {
 				checkIn: info.checkIn,
 				checkOut: info.checkOut,
 			},
+			property: { id: info.propertyId },
 			token,
 		})
 	}

@@ -4,4 +4,6 @@
 <p>Property Id: {{ propertyId }}</p>
 <p>User Id: {{ userId }}</p>
 <p>Link a plataforma de pagos:</p>
-<button>Pagar Reserva</button>
+<button mat-raised-button (click)="createBooking()" color="primary">
+	Pagar Reserva
+</button>
