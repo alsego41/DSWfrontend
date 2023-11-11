@@ -13,6 +13,8 @@ import { PropertyBookingComponent } from './components/property-booking/property
 import { CardsComponent } from './components/cards/cards.component'
 import { PropertyOwnerlistComponent } from './components/property/property-ownerlist/property-ownerlist.component'
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component'
+import { BookingUserlistComponent } from './components/booking/booking-userlist/booking-userlist.component'
+import { BookingOwnerlistComponent } from './components/booking/booking-ownerlist/booking-ownerlist.component'
 
 const routes: Routes = [
 	{
@@ -38,6 +40,16 @@ const routes: Routes = [
 	{
 		path: 'user/properties/new',
 		component: NewPropertyComponent,
+		canActivate: [authGuard],
+	},
+	{
+		path: 'user/properties/bookings',
+		component: BookingOwnerlistComponent,
+		canActivate: [authGuard],
+	},
+	{
+		path: 'user/bookings',
+		component: BookingUserlistComponent,
 		canActivate: [authGuard],
 	},
 	{

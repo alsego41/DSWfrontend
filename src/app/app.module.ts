@@ -33,7 +33,9 @@ import { AutocompleteComponent } from './components/autocomplete/autocomplete.co
 import { HowToBeAHostComponent } from './components/footer/how-to-be-a-host/how-to-be-a-host.component'
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component'
 import { PropertyBookingComponent } from './components/property-booking/property-booking.component'
-import { PropertyOwnerlistComponent } from './components/property/property-ownerlist/property-ownerlist.component'
+import { PropertyOwnerlistComponent } from './components/property/property-ownerlist/property-ownerlist.component';
+import { BookingOwnerlistComponent } from './components/booking/booking-ownerlist/booking-ownerlist.component';
+import { BookingUserlistComponent } from './components/booking/booking-userlist/booking-userlist.component'
 
 @NgModule({
 	declarations: [
@@ -60,6 +62,8 @@ import { PropertyOwnerlistComponent } from './components/property/property-owner
 		UserProfileComponent,
 		PropertyBookingComponent,
 		PropertyOwnerlistComponent,
+  BookingOwnerlistComponent,
+  BookingUserlistComponent,
 	],
 	imports: [
 		BrowserModule,
