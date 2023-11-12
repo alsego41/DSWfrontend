@@ -31,7 +31,10 @@ export class UserService {
 		)
 	}
 
-	register(newUser: User): Observable<any> {
-		return this.http.post<User>(`${this.baseUrl}/user/register`, newUser)
+	register(user: User): Observable<any> {
+		return this.http.post<User>(`${this.baseUrl}/sh/newuser`, {
+			user,
+			userType: { nameType: 'Guest' },
+		})
 	}
 }
