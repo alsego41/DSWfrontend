@@ -17,10 +17,12 @@ export class UserComponent implements AfterViewInit {
 	userData: any | undefined
 	propertyService: PropertyService = inject(PropertyService)
 	properties: Property[] = []
+	userType: string
 
 	ngAfterViewInit(): void {
 		this.userService.getInfo().subscribe((data) => {
 			this.userData = data.payload
+			this.userType = data.payload.userType?.nameType || ''
 		})
 		const _this = this
 		this.propertyService
