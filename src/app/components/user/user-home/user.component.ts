@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, inject } from '@angular/core'
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { Property } from 'src/app/models/property'
 import { UserService } from 'src/app/services/user.service'
 import { PropertyService } from 'src/app/services/property.service'
+import { Observable } from 'rxjs'
 
 @Component({
 	selector: 'app-user',
@@ -11,13 +12,16 @@ import { PropertyService } from 'src/app/services/property.service'
 	host: { class: 'user-comp' },
 })
 export class UserComponent implements AfterViewInit {
-	constructor(private router: Router) {}
+	constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 	userService: UserService = inject(UserService)
-
+	userData: any | undefined
 	propertyService: PropertyService = inject(PropertyService)
 	properties: Property[] = []
 
 	ngAfterViewInit(): void {
+		this.userService.getInfo().subscribe((data) => {
+			this.userData = data.payload
+		})
 		const _this = this
 		this.propertyService
 			.getOwnerProperties(localStorage.getItem('token') || '')

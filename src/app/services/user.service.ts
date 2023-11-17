@@ -31,6 +31,13 @@ export class UserService {
 		)
 	}
 
+	getInfo(): Observable<any> {
+		const token = localStorage.getItem('token') || ''
+		return this.http.get<any>(`${this.baseUrl}/user/info`, {
+			headers: { Authorization: `Bearer ${token}` },
+		})
+	}
+
 	register(user: User): Observable<any> {
 		return this.http.post<User>(`${this.baseUrl}/sh/newuser`, {
 			user,

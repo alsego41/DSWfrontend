@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core'
+import { LoginAuth, LoginBody } from '../models/login-auth'
+import { Observable } from 'rxjs'
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
 	providedIn: 'root',
@@ -6,8 +9,24 @@ import { Injectable } from '@angular/core'
 export class AuthService {
 	private baseUrl: string =
 		(import.meta.env.NG_APP_API_BASE_URL as string) || 'http://localhost:3000'
+	private userData: any
 
-	constructor() {}
+	constructor(private http: HttpClient) {}
+
+	login(loginInfo: LoginBody): Observable<LoginAuth> {
+		return this.http.post<LoginAuth>(`${this.baseUrl}/user/login`, loginInfo)
+	}
+
+	getUserData(): any {
+		console.log('getting data')
+
+		return this.userData
+	}
+
+	setUserData(userData: any): void {
+		console.log('setting data')
+		this.userData = userData
+	}
 
 	async verifyToken() {
 		const token: String = localStorage.getItem('token') || ''

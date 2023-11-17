@@ -1,8 +1,11 @@
 <div class="user-container">
 	<div class="btn-container">
-		<p>User name</p>
-		<p>User mail</p>
-		<p>User type</p>
+		<p>
+			{{ userData?.firstName || 'User name' }}
+			{{ userData?.lastName }}
+		</p>
+		<p>User mail {{ userData?.email! }}</p>
+		<p>User type {{ userData?.userType.nameType! }}</p>
 		<p>User photo</p>
 		<button mat-raised-button routerLink="./profile" color="secondary" class="">
 			Ir a mi perfil
