@@ -1,21 +1,21 @@
-<div class="container">
- <div class="container-left"> 
-   <a routerLink="/about-us">
-     <div class="SN">Sobre nosotros</div> 
-   </a>
-   <a href="#">
-     <div class="Cat"> Categorias</div>
-   </a>
-   <a routerLink="/how-to-be-a-host" >
-     <div class="CSA">Como ser anfitrio</div>
-   </a>
- </div>
- <div class="container-rigth">
-   <a href="#">
-     <div class="News">Noticias</div>
-   </a>
-   <a href="#">
-     <div class="CA">Centro de ayuda</div>
-    </a>
-  </div>
+<div class="link-container">
+	<div class="container">
+		<a [routerLink]="['/about-us']" class="link">
+			<p class="link-text">Sobre nosotros</p>
+		</a>
+		<a href="#" class="link">
+			<p class="link-text">Categorias</p>
+		</a>
+		<a [routerLink]="['/user/properties/new']" class="link">
+			<p>Convertirse en Anfitrión</p>
+		</a>
+	</div>
+	<div class="container">
+		<a href="#" class="link">
+			<p class="link-text">Noticias</p>
+		</a>
+		<a href="#" class="link">
+			<p class="link-text">Centro de ayuda</p>
+		</a>
+	</div>
 </div>
