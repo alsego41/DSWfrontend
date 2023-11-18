@@ -1,0 +1,14 @@
+::ng-deep .failed-snackbar {
+	.mat-snack-bar-container {
+		color: red;
+		background-color: red;
+	}
+	.mat-mdc-snack-bar-label {
+		// color: red !important;
+		// background-color: red !important;
+	}
+	.mat-mdc-snack-bar-action {
+		color: red;
+		background-color: rgba(255, 0, 0, 0.275);
+	}
+}
