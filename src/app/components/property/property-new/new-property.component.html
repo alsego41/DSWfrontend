@@ -1,10 +1,10 @@
 <form [formGroup]="newPropertyForm">
 	<mat-card>
-		<mat-card-header>
+		<mat-card-header class="header">
 			<mat-card-title>Registrar nueva propiedad</mat-card-title>
 		</mat-card-header>
-		<mat-card-content>
-			<mat-form-field>
+		<mat-card-content class="contenido">
+			<mat-form-field class="text-field">
 				<input
 					type="text"
 					formControlName="nameProperty"
@@ -12,7 +12,7 @@
 					placeholder="Nombre identificatorio de la Propiedad"
 				/>
 			</mat-form-field>
-			<mat-form-field>
+			<mat-form-field class="text-field">
 				<input
 					type="text"
 					formControlName="address"
@@ -20,10 +20,11 @@
 					placeholder="Dirección"
 				/>
 			</mat-form-field>
-
+           <div class="auto-comp">
 			<app-autocomplete
 				[tipoFiltro]="'province'"
 				(selectedProvince)="selectProvince($event)"
+				class="prov"
 			></app-autocomplete>
 
 			<!-- https://docs.angular.lat/guide/inputs-outputs -->
@@ -32,9 +33,10 @@
 				[tipoFiltro]="'city-by-province'"
 				[province]="provinceSelected.id"
 				(selectedCity)="selectCity($event)"
+				class="city"
 			></app-autocomplete>
-
-			<mat-form-field>
+           </div>
+			<mat-form-field class="text-field">
 				<input
 					type="text"
 					formControlName="zone"
@@ -42,39 +44,39 @@
 					placeholder="Barrio"
 				/>
 			</mat-form-field>
-			<mat-form-field>
+			<mat-form-field class="text-field">
 				<input
 					type="number"
 					formControlName="m2"
 					matInput
-					placeholder="Cant. de M2"
+					placeholder="Nº de M2"
 				/>
 			</mat-form-field>
-			<mat-form-field>
+			<mat-form-field class="text-field">
 				<input
 					type="number"
 					formControlName="spaces"
 					matInput
-					placeholder="Cant. de Ambientes"
+					placeholder="Nº de Ambientes"
 				/>
 			</mat-form-field>
-			<mat-form-field>
+			<mat-form-field class="text-field">
 				<input
 					type="number"
 					formControlName="roomQty"
 					matInput
-					placeholder="Cant. de Habitaciones"
+					placeholder="Nº de Habitaciones"
 				/>
 			</mat-form-field>
-			<mat-form-field>
+			<mat-form-field class="text-field">
 				<input
 					type="number"
 					formControlName="bathQty"
 					matInput
-					placeholder="Cant. de Baños"
+					placeholder="Nº de Baños"
 				/>
 			</mat-form-field>
-			<mat-form-field>
+			<mat-form-field class="text-field">
 				<input
 					type="number"
 					formControlName="price"
@@ -84,7 +86,7 @@
 			</mat-form-field>
 			<!-- Select options estado -->
 
-			<mat-form-field>
+			<mat-form-field class="text-field">
 				<input
 					type="text"
 					formControlName="state"
@@ -92,18 +94,22 @@
 					placeholder="Estado Inicial"
 				/>
 			</mat-form-field>
-			<mat-radio-group formControlName="backyard">
-				<mat-label>Patio</mat-label>
-				<mat-radio-button value="true">Tiene</mat-radio-button>
-				<mat-radio-button value="false">No tiene</mat-radio-button>
-			</mat-radio-group>
-			<mat-radio-group formControlName="grill">
-				<mat-label>Parrilla</mat-label>
+			<mat-card-content class="marco-patio">
+			<mat-radio-group formControlName="backyard" class="Patio">
+				<mat-label class="n1">Patio</mat-label>
 				<mat-radio-button value="true">Tiene</mat-radio-button>
 				<mat-radio-button value="false">No tiene</mat-radio-button>
 			</mat-radio-group>
 		</mat-card-content>
-		<mat-card-actions>
+		<mat-card-content class="marco-parrilla">
+			<mat-radio-group formControlName="grill" class="Parrilla">
+				<mat-label class="n2">Parrilla</mat-label>
+				<mat-radio-button value="true">Tiene</mat-radio-button>
+				<mat-radio-button value="false">No tiene</mat-radio-button>
+			</mat-radio-group>
+		</mat-card-content>
+		</mat-card-content>
+		<mat-card-actions class="carga">
 			<button (click)="onSubmit()" mat-raised-button color="primary">
 				Cargar propiedad
 			</button>
