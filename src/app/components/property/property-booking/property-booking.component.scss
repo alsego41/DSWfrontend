@@ -83,6 +83,12 @@
 .booking-info {
 	border: 2px solid rgb(68, 104, 106);
 	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	& p {
+		margin: 0;
+	}
 }
 
 .booking-btn-container {

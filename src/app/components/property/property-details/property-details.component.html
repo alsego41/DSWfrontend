@@ -10,8 +10,8 @@
 		<p class="prop-name">{{ Property?.nameProperty }}</p>
 		<p class="prop-ubicacion">
 			{{ Property?.address }}, Zona {{ Property?.zone }} <br />
-			nameCity, nameDepartamento, nameProvince
-			<!-- {{Property.cityInfo.nameCity}} -->
+			{{ Property?.city.nameCity }}, {{ Property?.city.nameDepartamento }}<br />
+			{{ Property?.city?.province?.nameProvince }}
 		</p>
 	</div>
 

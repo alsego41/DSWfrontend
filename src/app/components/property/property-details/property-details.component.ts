@@ -12,7 +12,7 @@ export class PropertyDetailsComponent {
 	route: ActivatedRoute = inject(ActivatedRoute)
 	propertyId: String
 	propertyService: PropertyService = inject(PropertyService)
-	Property: Property | undefined
+	Property: any
 	checkIn: any
 	checkOut: any
 	cantDias: number
@@ -24,7 +24,7 @@ export class PropertyDetailsComponent {
 			this.checkOut = params['checkOut']
 		})
 		this.propertyService
-			.getPropertyById(this.propertyId)
+			.getPropertyByIdFull(this.propertyId)
 			.subscribe((data) => (this.Property = data))
 
 		const checkInExp = new Date(this.checkIn)

@@ -11,17 +11,17 @@
 		<p class="prop-name">{{ Property?.nameProperty }}</p>
 		<p class="prop-ubicacion">
 			{{ Property?.address }}, Zona {{ Property?.zone }} <br />
-			{{ Property?.city.nameCity }}, {{ Property?.city.nameDepartamento }},
+			{{ Property?.city.nameCity }}, {{ Property?.city.nameDepartamento }}<br />
 			{{ Property?.city.province.nameProvince }}
-			<!-- nameCity, nameDepartamento, nameProvince -->
-			<!-- {{Property.cityInfo.nameCity}} -->
 		</p>
 	</div>
 </div>
 <div class="booking-container">
 	<div class="booking-info">
 		<!-- precio, dias estadia, btn cambiar fechas, btn registrar reserva -->
-		<p class="booking-detail">{{ checkIn | date }} - {{ checkOut | date }}</p>
+		<p class="booking-detail">Fecha de Check In: {{ checkIn | date }}</p>
+		<p class="booking-detail">Fecha de Check Out: {{ checkOut | date }}</p>
+		<!-- <p class="booking-detail">{{ checkIn | date }} - {{ checkOut | date }}</p> -->
 		<p class="booking-detail">
 			Precio Total:
 			<span class="booking-detail-bold">
