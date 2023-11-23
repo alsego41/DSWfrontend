@@ -2,7 +2,7 @@ import { Component, inject, ViewChild, AfterViewInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { UserService } from 'src/app/services/user.service'
 import { LoginAuth, LoginBody } from 'src/app/models/login-auth'
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { SnackbarService } from 'src/app/services/snackbar.service'
 import { AuthService } from 'src/app/services/auth.service'
 
@@ -15,6 +15,8 @@ export class LoginComponent implements AfterViewInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private authService: AuthService,
+		private route: ActivatedRoute,
+		private router: Router,
 	) {}
 	snackBarService: SnackbarService = inject(SnackbarService)
 	loginForm: FormGroup = this.formBuilder.group({
@@ -25,7 +27,6 @@ export class LoginComponent implements AfterViewInit {
 	fetched: Boolean = false
 	userService: UserService = inject(UserService)
 	loginInfo: LoginBody
-	router: Router = inject(Router)
 
 	ngAfterViewInit(): void {
 		this.snackBarService.setSBTitle('Debes iniciar sesión!')
@@ -60,7 +61,8 @@ export class LoginComponent implements AfterViewInit {
 	storeAndProceed(token: string) {
 		localStorage.setItem('token', token)
 		this.snackBarService.setSBTitle('Inicio de sesión exitoso!')
-		this.router.navigateByUrl('/user')
+		const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/user'
+		this.router.navigateByUrl(returnUrl)
 	}
 
 	handleFailedAccess(err?: any) {
