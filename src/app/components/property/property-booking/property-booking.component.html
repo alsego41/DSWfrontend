@@ -1,9 +1,38 @@
-<p>property-booking works!</p>
-<p>Check In: {{ checkIn | date }}</p>
-<p>Check Out: {{ checkOut | date }}</p>
-<p>Property Id: {{ propertyId }}</p>
-<p>User Id: {{ userId }}</p>
-<p>Link a plataforma de pagos:</p>
-<button mat-raised-button (click)="createBooking()" color="primary">
-	Pagar Reserva
-</button>
+<h2>Confirmar Reserva</h2>
+<div class="prop-container">
+	<div class="img-container">
+		<img
+			[src]="Property?.photo || './assets/casa.png'"
+			alt="Imagen de la casa"
+			class="card-img"
+		/>
+	</div>
+	<div class="header-container">
+		<p class="prop-name">{{ Property?.nameProperty }}</p>
+		<p class="prop-ubicacion">
+			{{ Property?.address }}, Zona {{ Property?.zone }} <br />
+			{{ Property?.city.nameCity }}, {{ Property?.city.nameDepartamento }},
+			{{ Property?.city.province.nameProvince }}
+			<!-- nameCity, nameDepartamento, nameProvince -->
+			<!-- {{Property.cityInfo.nameCity}} -->
+		</p>
+	</div>
+</div>
+<div class="booking-container">
+	<div class="booking-info">
+		<!-- precio, dias estadia, btn cambiar fechas, btn registrar reserva -->
+		<p class="booking-detail">{{ checkIn | date }} - {{ checkOut | date }}</p>
+		<p class="booking-detail">
+			Precio Total:
+			<span class="booking-detail-bold">
+				$ {{ calculateTotal(checkIn, checkOut, Property?.price) }}
+			</span>
+			($ {{ Property?.price }} por noche)
+		</p>
+	</div>
+</div>
+<div class="btn-container">
+	<button mat-raised-button (click)="createBooking()" color="primary">
+		Pagar Reserva
+	</button>
+</div>
