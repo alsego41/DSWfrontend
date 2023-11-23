@@ -34,4 +34,22 @@ export class BookingService {
 			token,
 		})
 	}
+
+	calculateTotal(checkIn: string, checkOut: string, price: any) {
+		const checkInExp = new Date(checkIn)
+		const checkOutExp = new Date(checkOut)
+		const dias = this.dateDiffInDays(checkInExp, checkOutExp)
+		return dias * price
+	}
+
+	private dateDiffInDays(start: Date, end: Date) {
+		const _MS_PER_DAY = 1000 * 60 * 60 * 24
+		const utc1 = Date.UTC(
+			start.getFullYear(),
+			start.getMonth(),
+			start.getDate(),
+		)
+		const utc2 = Date.UTC(end.getFullYear(), end.getMonth(), end.getDate())
+		return Math.floor((utc2 - utc1) / _MS_PER_DAY)
+	}
 }
