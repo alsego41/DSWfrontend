@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { BookingService } from 'src/app/services/booking.service'
+import { PropertyService } from 'src/app/services/property.service'
 
 @Component({
 	selector: 'app-property-booking',
@@ -12,10 +13,12 @@ export class PropertyBookingComponent implements OnInit {
 	checkOut: string
 	propertyId: string
 	userId: string
+	Property: any
 	constructor(
 		private route: ActivatedRoute,
 		private router: Router,
 		private bookingService: BookingService,
+		private propertyService: PropertyService,
 	) {}
 
 	ngOnInit() {
@@ -25,6 +28,9 @@ export class PropertyBookingComponent implements OnInit {
 			this.checkOut = params['checkOut']
 			this.userId = localStorage.getItem('token') || ''
 		})
+		this.propertyService
+			.getPropertyByIdFull(this.propertyId)
+			.subscribe((data) => (this.Property = data))
 		// console.log(this.checkIn)
 		// console.log(this.checkOut)
 
@@ -32,6 +38,15 @@ export class PropertyBookingComponent implements OnInit {
 		// call service get user
 
 		// after payment, go to confirmation page
+	}
+
+	calculateTotal(checkInExp: string, checkOutExp: string, price: number) {
+		let total = this.bookingService.calculateTotal(
+			checkInExp,
+			checkOutExp,
+			price,
+		)
+		return total
 	}
 
 	createBooking() {

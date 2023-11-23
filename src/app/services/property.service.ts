@@ -20,6 +20,10 @@ export class PropertyService {
 		return this.http.get<Property>(`${this.baseUrl}/property/${id}`)
 	}
 
+	getPropertyByIdFull(id: String): Observable<Property> {
+		return this.http.get<Property>(`${this.baseUrl}/property/full/${id}`)
+	}
+
 	getOwnerProperties(token: String): Observable<Property[]> {
 		return this.http.get<Property[]>(`${this.baseUrl}/property/ownerlist`, {
 			headers: { Authorization: `Bearer ${token}` },
