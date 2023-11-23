@@ -1,4 +1,6 @@
 import { Component } from '@angular/core'
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { SnackbarService } from './services/snackbar.service'
 
 @Component({
 	selector: 'app-root',
@@ -8,5 +10,12 @@ import { Component } from '@angular/core'
 })
 export class AppComponent {
 	title = 'GU Alquileres'
-	constructor() {}
+	constructor(
+		private snackBar: MatSnackBar,
+		private snackBarService: SnackbarService,
+	) {
+		this.snackBarService.titleSource$.subscribe((msg) => {
+			this.snackBar.open(msg, 'Cerrar', { duration: 4000 })
+		})
+	}
 }
