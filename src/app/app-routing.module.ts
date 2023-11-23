@@ -32,6 +32,7 @@ const routes: Routes = [
 	{
 		path: 'property/:id/booking',
 		component: PropertyBookingComponent,
+		canActivate: [authGuard],
 	},
 	{
 		path: 'property/:id',
