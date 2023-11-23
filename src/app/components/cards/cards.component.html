@@ -1,4 +1,4 @@
-<div class="card-container">
+<div class="card-container" *ngIf="searchData.length > 0; else noResults">
 	<mat-card class="card" *ngFor="let Property of searchData">
 		<mat-card-content class="card-img-container">
 			<img
@@ -15,9 +15,9 @@
 			'Zona ' +
 				Property.zone +
 				', ' +
-				Property.cityInfo.nameCity +
+				Property.city.nameCity +
 				', ' +
-				Property.cityInfo.nameDepartamento
+				Property.city.nameDepartamento
 		}}</mat-card-content>
 		<mat-card-content class="card-filter">
 			<mat-chip-set>
@@ -46,10 +46,13 @@
 					checkOut: bookingInfo.checkOutExp
 				}"
 			>
-				<button mat-raised-button class="card-moreinfo" color="primary">
-					Más info...
-				</button>
+				<button mat-raised-button class="card-moreinfo">Más info...</button>
 			</a>
 		</mat-card-actions>
 	</mat-card>
 </div>
+<ng-template class="card-container-empty" #noResults>
+	<mat-card class="card-empty">
+		<p class="">No hay resultados para esta búsqueda</p>
+	</mat-card>
+</ng-template>
