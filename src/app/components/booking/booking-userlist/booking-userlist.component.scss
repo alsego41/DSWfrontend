@@ -1,8 +1,10 @@
+
 .list-container{
     display: flex;
     margin: 20px;
     flex-direction: column;
     gap: 20px;
+    text-align: center;
 
 }
 .card-info{
@@ -10,6 +12,6 @@
 }
 
 .card-moreinfo{
-    margin-left: 220px;
+    margin-left: 150px;
     margin-top: 25px;
 }
