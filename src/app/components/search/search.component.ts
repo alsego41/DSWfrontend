@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 import { MatIconRegistry } from '@angular/material/icon'
 import { FormControl, FormBuilder } from '@angular/forms'
@@ -13,6 +13,9 @@ import { LocationService } from 'src/app/services/location.service'
 import { PropertyService } from 'src/app/services/property.service'
 import { Router } from '@angular/router'
 import { SnackbarService } from 'src/app/services/snackbar.service'
+import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core'
+import { MatDatepickerInputEvent } from '@angular/material/datepicker/index.js'
+import { formatDate } from '@angular/common'
 
 const SEARCH_ICON = `
   <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>`
@@ -21,6 +24,7 @@ const SEARCH_ICON = `
 	selector: 'app-search',
 	templateUrl: './search.component.html',
 	styleUrls: ['./search.component.scss'],
+	encapsulation: ViewEncapsulation.None,
 })
 export class SearchComponent implements OnInit {
 	title = 'Busqueda'
@@ -39,7 +43,9 @@ export class SearchComponent implements OnInit {
 		private propertyService: PropertyService,
 		private router: Router,
 		private snackBarService: SnackbarService,
-	) {
+	) // private _adapter: DateAdapter<any>,
+	// @Inject(MAT_DATE_LOCALE) private _locale: string,
+	{
 		iconRegistry.addSvgIconLiteral(
 			'search',
 			sanitizer.bypassSecurityTrustHtml(SEARCH_ICON),
@@ -53,6 +59,8 @@ export class SearchComponent implements OnInit {
 	})
 
 	ngOnInit(): void {
+		// this._locale = 'es-AR'
+		// this._adapter.setLocale(this._locale)
 		const combinedLocations = this.locationService
 			.getCities()
 			.pipe(combineLatestWith(this.locationService.getProvinces()))
@@ -70,6 +78,15 @@ export class SearchComponent implements OnInit {
 			)
 		})
 	}
+	// handleDateInput(e: MatDatepickerInputEvent<any>) {
+	// 	console.log(e)
+	// 	const date = e.value
+	// 	console.log(date)
+	// 	if (date instanceof Date && !isNaN(date.getTime())) {
+	// 		const formattedDate = formatDate(date, 'MM-dd-yyyy', 'es-AR')
+	// 		console.log(formattedDate)
+	// 	}
+	// }
 
 	private filterLocations(input: string): any[] {
 		const inputFormateado = input.toLocaleLowerCase()
@@ -172,4 +189,7 @@ export class SearchComponent implements OnInit {
 			}
 		}
 	}
+	// handlePicker(e: Event) {
+	// 	e.preventDefault()
+	// }
 }
