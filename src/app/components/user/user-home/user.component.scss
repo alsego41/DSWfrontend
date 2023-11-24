@@ -39,10 +39,11 @@
 	}
 
 	.mdc-card {
-	
+		flex-direction: row;
 
 		.card-info {
 			display: flex;
+			flex-direction: column;
 			
 
 			.card-header {
