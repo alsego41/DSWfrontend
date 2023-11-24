@@ -42,7 +42,7 @@
 			Ver mis reservas
 		  </button>
 		</div>
-		<button mat-raised-button (click)="logout()" color="secondary" class="">
+		<button mat-raised-button (click)="logout()" color="secondary" class="log-out">
 			Cerrar Sesión
 		</button>
 	</div>
@@ -52,8 +52,8 @@
 				{{ userData?.firstName || 'User name' }}
 				{{ userData?.lastName }}
 			</p>
-			<p>User mail {{ userData?.email! }}</p>
-			<p>User type {{ userData?.userType.nameType! }}</p>
+			<p> {{ userData?.email! }}</p>
+			<p> {{ userData?.userType.nameType! }}</p>
 			<button
 				mat-raised-button
 				routerLink="./profile"
