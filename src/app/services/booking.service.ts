@@ -19,6 +19,13 @@ export class BookingService {
 		})
 	}
 
+	getOwnerBookings(): Observable<Booking[]> {
+		const token = localStorage.getItem('token') || ''
+		return this.http.get<Booking[]>(`${this.baseUrl}/booking/owner`, {
+			headers: { Authorization: `Bearer ${token}` },
+		})
+	}
+
 	createBooking(info: {
 		checkIn: string
 		checkOut: string
