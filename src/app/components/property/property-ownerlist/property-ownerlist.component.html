@@ -28,7 +28,7 @@
 			</mat-card-content>
 			<mat-card-actions class="card-actions">
 				<mat-card-footer class="card-footer"
-					>$ {{ props.price }}</mat-card-footer
+					> {{"$" + props.price }}</mat-card-footer
 				>
 				<a routerLink="/property/{{ props._id }}/edit">
 					<button mat-raised-button color="primary" class="card-moreinfo">
@@ -38,7 +38,7 @@
 			</mat-card-actions>
 		</div>
 	</mat-card>
-	<button mat-raised-button routerLink="../properties/new" color="primary">
+	<button mat-raised-button routerLink="../properties/new" color="primary" class="more-prop">
 		Cargar nueva propiedad
 	</button>
 </div>

@@ -5,9 +5,8 @@
 				{{ userData?.firstName || 'User name' }}
 				{{ userData?.lastName }}
 			</p>
-			<p>User mail {{ userData?.email! }}</p>
-			<p>User type {{ userData?.userType.nameType! }}</p>
-			<p>User photo</p>
+			<p>{{ userData?.email! }}</p>
+			<p>{{ userData?.userType.nameType! }}</p>
 			<button
 				mat-raised-button
 				routerLink="./profile"
@@ -20,30 +19,30 @@
 		<!-- User profile / foto, info personal, posibilidad de editar mostrar dentro de un desplegable -->
 		<!-- Lista de propiedades if not null-->
 		<!-- Lista de reservas if not null -->
-		<div class="btn-container">
+		<div class="prop-container">
 			<button
 				mat-raised-button
 				routerLink="./ownerlist"
 				color="secondary"
-				class=""
+				class="see-prop"
 			>
 				Ver mis propiedades
 			</button>
-			<button mat-raised-button routerLink="./properties/new" color="primary">
-				Cargar nueva propiedad
-			</button>
-		</div>
-		<button
+		
+		
+		  <button
 			mat-raised-button
 			routerLink="./properties/bookings"
 			color="secondary"
-		>
+			class="manage"
+		   >
 			Gestionar mis alquileres
-		</button>
-		<button mat-raised-button routerLink="./bookings" color="secondary">
+		  </button>
+		  <button mat-raised-button routerLink="./bookings" color="secondary" class="view">
 			Ver mis reservas
-		</button>
-		<button mat-raised-button (click)="logout()" color="secondary" class="">
+		  </button>
+		</div>
+		<button mat-raised-button (click)="logout()" color="secondary" class="log-out">
 			Cerrar Sesión
 		</button>
 	</div>
@@ -53,9 +52,8 @@
 				{{ userData?.firstName || 'User name' }}
 				{{ userData?.lastName }}
 			</p>
-			<p>User mail {{ userData?.email! }}</p>
-			<p>User type {{ userData?.userType.nameType! }}</p>
-			<p>User photo</p>
+			<p> {{ userData?.email! }}</p>
+			<p> {{ userData?.userType.nameType! }}</p>
 			<button
 				mat-raised-button
 				routerLink="./profile"

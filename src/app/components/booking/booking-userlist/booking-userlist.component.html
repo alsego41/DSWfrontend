@@ -1,6 +1,6 @@
 <div class="list-container">
 	<h2>Mis Reservas</h2>
-	<mat-card *ngFor="let booking of bookingList">
+	<mat-card *ngFor="let booking of bookingList" class="mat-card">
 		<!-- <img
 			mat-card-md-image
 			[src]="booking._id || './assets/casa.png'"
@@ -36,7 +36,7 @@
 				</mat-chip-set>
 			</mat-card-content>
 			<mat-card-actions class="card-actions">
-				<button mat-raised-button color="primary" class="card-moreinfo">
+				<button mat-raised-button color="primary" class="card-moreinfo" >
 					Gestionar mi reserva
 				</button>
 			</mat-card-actions>

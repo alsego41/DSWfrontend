@@ -1,0 +1,30 @@
+.list-container{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.card-actions{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.card-footer{
+    font-size: 20px;
+	text-align: center;
+	padding: 0 !important;
+	&-text {
+		font-size: 12px;
+		padding: 0 !important;
+	}
+    
+
+
+}
+.more-prop{
+    margin-top: 30px;
+    width: 230px;
+    margin-left: 70px;
+}
