@@ -3,7 +3,8 @@ import { FormBuilder } from '@angular/forms'
 import { PropertyService } from 'src/app/services/property.service'
 import { Property } from 'src/app/models/property'
 import { UserService } from 'src/app/services/user.service'
-import { Observable } from 'rxjs'
+import { SnackbarService } from 'src/app/services/snackbar.service'
+import { Router } from '@angular/router'
 
 @Component({
 	selector: 'app-new-property',
@@ -11,7 +12,11 @@ import { Observable } from 'rxjs'
 	styleUrls: ['./new-property.component.scss'],
 })
 export class NewPropertyComponent {
-	constructor(private formBuilder: FormBuilder) {}
+	constructor(
+		private formBuilder: FormBuilder,
+		private snackBarService: SnackbarService,
+		private router: Router,
+	) {}
 	newPropertyForm = this.formBuilder.group({
 		nameProperty: [''],
 		address: [''],
@@ -52,7 +57,10 @@ export class NewPropertyComponent {
 		this.citySelected.departamento = event.departamento
 	}
 
+	sumbittedState: boolean = false
+
 	onSubmit() {
+		this.sumbittedState = true
 		this.newProperty = {
 			_id: '',
 			nameProperty: this.newPropertyForm.value.nameProperty as string,
@@ -81,10 +89,14 @@ export class NewPropertyComponent {
 			)
 			.subscribe({
 				next(res) {
-					console.log(res)
+					_this.snackBarService.setSBTitle(
+						`Su nueva propiedad fue creada con éxito`,
+					)
+					_this.router.navigate(['/user/ownerlist'])
 				},
 				error(err) {
-					console.log(err)
+					_this.snackBarService.setSBTitle(`Su propiedad no pudo ser creada`)
+					_this.sumbittedState = false
 				},
 			})
 	}
