@@ -11,9 +11,5 @@ export class HomeComponent {
 	properties: Property[] = []
 	propertyService: PropertyService = inject(PropertyService)
 
-	constructor() {
-		this.propertyService
-			.getAllProperties()
-			.subscribe((data) => (this.properties = data))
-	}
+	constructor() {}
 }
