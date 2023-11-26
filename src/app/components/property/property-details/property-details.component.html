@@ -1,0 +1,55 @@
+<div class="prop-container">
+	<div class="img-container">
+		<img
+			[src]="Property?.photo || './assets/casa.png'"
+			alt="Imagen de la casa"
+			class="card-img"
+		/>
+	</div>
+	<div class="header-container">
+		<p class="prop-name">{{ Property?.nameProperty }}</p>
+		<p class="prop-ubicacion">
+			{{ Property?.address }}, Zona {{ Property?.zone }} <br />
+			{{ Property?.city.nameCity }}, {{ Property?.city.nameDepartamento }}<br />
+			{{ Property?.city?.province?.nameProvince }}
+		</p>
+	</div>
+
+	<div class="details-container">
+		<mat-chip-set>
+			<mat-chip>{{ Property?.m2 }}m2</mat-chip>
+			<mat-chip>{{ Property?.roomQty }} Habitaciones</mat-chip>
+			<mat-chip>{{ Property?.bathQty }} Baños</mat-chip>
+			<mat-chip>{{
+				Property?.grill ? 'Con parrillero' : 'Sin parrilla'
+			}}</mat-chip>
+			<mat-chip>{{ Property?.backyard ? 'Con patio' : 'Sin patio' }}</mat-chip>
+		</mat-chip-set>
+	</div>
+</div>
+<div class="booking-container">
+	<div class="booking-info">
+		<!-- precio, dias estadia, btn cambiar fechas, btn registrar reserva -->
+		<p class="booking-detail">{{ checkIn | date }} - {{ checkOut | date }}</p>
+		<p class="booking-detail">
+			Precio Total:
+			<span class="booking-detail-bold">
+				$ {{ calculateTotal(cantDias, Property?.price) }}
+			</span>
+			($ {{ Property?.price }} por noche)
+		</p>
+		<div class="booking-btn-container">
+			<button mat-raised-button color="secondary">Cambiar fechas</button>
+			<!-- <a [routerLink]="['/book', houseId]" [queryParams]="{ checkIn: '2023-10-20', checkOut: '2023-10-25' }">Book Now</a> -->
+
+			<button
+				routerLink="./booking"
+				[queryParams]="{ checkIn, checkOut }"
+				mat-raised-button
+				color="primary"
+			>
+				Registrar Reserva
+			</button>
+		</div>
+	</div>
+</div>

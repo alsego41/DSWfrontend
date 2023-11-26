@@ -3,8 +3,29 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	text-align: center;
 	gap: 20px;
+	margin-bottom: 100px;
+	margin-top: 10px;
 }
+
+.btn-container{
+	margin: 50px;
+	
+}
+.see-prop{
+	margin: 10px;
+}
+.manage{
+	margin: 10px;
+}
+.view{
+	margin: 10px;
+}
+.log-out{
+	margin-top: 80px;
+}
+
 
 .list-container {
 	width: 90%;
@@ -23,6 +44,7 @@
 		.card-info {
 			display: flex;
 			flex-direction: column;
+			
 
 			.card-header {
 				padding: 10px 10px 5px;
@@ -37,6 +59,10 @@
 			.card-actions {
 				justify-content: space-between;
 				padding: 5px 10px 10px;
+				
+			}
+			.card-moreinfo{
+				margin: 50px;
 			}
 		}
 	}

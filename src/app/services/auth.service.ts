@@ -1,27 +1,42 @@
 import { Injectable } from '@angular/core'
+import { LoginAuth, LoginBody } from '../models/login-auth'
+import { Observable } from 'rxjs'
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
 	providedIn: 'root',
 })
 export class AuthService {
-	private token: String = localStorage.getItem('token') || ''
-	private baseUrl = 'https://gualquileres.onrender.com'
+	private baseUrl: string =
+		(import.meta.env.NG_APP_API_BASE_URL as string) || 'http://localhost:3000'
+	private userData: any
 
-	constructor() {}
+	constructor(private http: HttpClient) {}
+
+	login(loginInfo: LoginBody): Observable<LoginAuth> {
+		return this.http.post<LoginAuth>(`${this.baseUrl}/user/login`, loginInfo)
+	}
+
+	getUserData(): any {
+		return this.userData
+	}
+
+	setUserData(userData: any): void {
+		this.userData = userData
+	}
 
 	async verifyToken() {
-		if (this.token) {
+		const token: String = localStorage.getItem('token') || ''
+		if (token) {
 			const res = await fetch(`${this.baseUrl}/user/verify`, {
 				method: 'POST',
-				body: JSON.stringify({ token: this.token }),
+				body: JSON.stringify({ token: token }),
 				headers: { 'Content-type': 'application/json; charset=UTF-8' },
 			})
 			if (res.status === 200) {
 				const json = await res.json()
-				console.log(json.payload)
 				return true
 			} else {
-				console.log(res.status)
 				return false
 			}
 		} else {

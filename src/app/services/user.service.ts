@@ -10,10 +10,16 @@ import { User } from '../models/user'
 })
 export class UserService {
 	constructor(private http: HttpClient) {}
-	baseUrl: String = 'https://gualquileres.onrender.com'
+	private baseUrl: string =
+		(import.meta.env.NG_APP_API_BASE_URL as string) || 'http://localhost:3000'
 
 	login(body: LoginBody): Observable<LoginAuth> {
 		return this.http.post<LoginAuth>(`${this.baseUrl}/user/login`, body)
+	}
+
+	logout(): void {
+		localStorage.removeItem('token')
+		return
 	}
 
 	getUserProperties(token: String): Observable<{ properties: Property[] }> {
@@ -25,7 +31,17 @@ export class UserService {
 		)
 	}
 
-	register(newUser: User): Observable<any> {
-		return this.http.post<User>(`${this.baseUrl}/user/register`, newUser)
+	getInfo(): Observable<any> {
+		const token = localStorage.getItem('token') || ''
+		return this.http.get<any>(`${this.baseUrl}/user/info`, {
+			headers: { Authorization: `Bearer ${token}` },
+		})
+	}
+
+	register(user: User): Observable<any> {
+		return this.http.post<User>(`${this.baseUrl}/sh/newuser`, {
+			user,
+			userType: { nameType: 'Guest' },
+		})
 	}
 }

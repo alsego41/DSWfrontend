@@ -1,43 +1,62 @@
-<form [formGroup]="searchForm">
-	<mat-form-field class="contorno">
-		<mat-label> Busqueda </mat-label>
+<form [formGroup]="searchForm" class="form-container">
+	<mat-form-field class="form-search" subscriptSizing="dynamic">
+		<mat-label class="form-label">Buscar por Ciudad o Provincia</mat-label>
 		<input
-			class="barra"
+			class="form-search-input"
 			type="text"
 			matInput
 			[matAutocomplete]="auto"
-			formControlName="city"
-			[formControl]="cityInput"
+			formControlName="locationInput"
+			[formControl]="locationInput"
+			required="true"
 		/>
-		<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-			<mat-option *ngFor="let city of filcities | async" [value]="city">
-				{{ city }}
+		<mat-autocomplete
+			autoActiveFirstOption
+			#auto="matAutocomplete"
+			(optionSelected)="updateMySelection($event)"
+			required="true"
+		>
+			<mat-option
+				*ngFor="let location of filteredLocations | async"
+				[value]="location.nombre"
+				[id]="location.id"
+				[attr.data-depto]="location.departamento"
+				[attr.data-tipo]="location.centroide ? 'province' : 'city'"
+				[attr.data-idprov]="location.centroide ? '' : location.provincia_id"
+			>
+				{{
+					location.centroide
+						? location.nombre + ' (Provincia)'
+						: location.nombre + ', ' + location.departamento
+				}}
 			</mat-option>
 		</mat-autocomplete>
 	</mat-form-field>
 	<div class="fechas">
-		<mat-form-field class="checkin">
-			<mat-label>CHECK IN</mat-label>
+		<mat-form-field class="checkin" subscriptSizing="dynamic">
+			<mat-label class="form-label">Check In</mat-label>
 			<input
 				matInput
 				[matDatepicker]="pickerCheckIn"
 				formControlName="checkin"
+				required="true"
 			/>
-			<mat-hint>MM/DD/YYYY</mat-hint>
+			<mat-hint class="form-label-hint">Ej. 21/01/2024</mat-hint>
 			<mat-datepicker-toggle
 				matSuffix
 				[for]="pickerCheckIn"
 			></mat-datepicker-toggle>
 			<mat-datepicker #pickerCheckIn></mat-datepicker>
 		</mat-form-field>
-		<mat-form-field class="checkout">
-			<mat-label>CHECK OUT</mat-label>
+		<mat-form-field class="checkout" subscriptSizing="dynamic">
+			<mat-label class="form-label">Check Out</mat-label>
 			<input
 				matInput
 				[matDatepicker]="pickerCheckOut"
 				formControlName="checkout"
+				required="true"
 			/>
-			<mat-hint>MM/DD/YYYY</mat-hint>
+			<mat-hint class="form-label-hint">Ej. 27/01/2024</mat-hint>
 			<mat-datepicker-toggle
 				matSuffix
 				[for]="pickerCheckOut"
@@ -45,15 +64,18 @@
 			<mat-datepicker #pickerCheckOut></mat-datepicker>
 		</mat-form-field>
 	</div>
-	<div class="personas">
-		<mat-form-field>
-			<input
-				matInput
-				placeholder="HABITACIONES"
-				formControlName="roomqty"
-				type="number"
-			/>
+	<div class="form-personas">
+		<mat-form-field class="form-personas-input" subscriptSizing="dynamic">
+			<mat-label class="form-label">Cant. Habitaciones</mat-label>
+			<input matInput formControlName="roomqty" type="number" required="true" />
 		</mat-form-field>
+		<button
+			(click)="handleSearch()"
+			class="boton"
+			mat-raised-button
+			color="primary"
+		>
+			BUSCAR
+		</button>
 	</div>
-	<button class="boton" mat-raised-button color="primary">BUSCAR</button>
 </form>

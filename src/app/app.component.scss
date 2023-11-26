@@ -1,8 +1,19 @@
 *{
     box-sizing: border-box;
     font-family: 'DM Sans', sans-serif;
+
+    display: grid;
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(150px, 1fr)
+    );
+    
+    
 }
 body {
     margin: 0;
     padding: 0;
+    
 }
+

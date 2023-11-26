@@ -1,0 +1,77 @@
+<div class="list-container">
+	<h2>Lista de reservas</h2>
+	<mat-card *ngFor="let booking of bookingList" class="booking-container">
+		<div class="booking-img">
+			<img
+				mat-card-md-image
+				[src]="booking.property.photo || './assets/casa.png'"
+				alt="Imagen de la casa"
+				class="property-img"
+			/>
+		</div>
+		<div class="booking-info">
+			<div class="booking-property">
+				<h3>{{ booking.property.nameProperty }}</h3>
+				<mat-card-content class="booking-content"
+					>Dirección: {{ booking.property.address }}, Zona
+					{{ booking.property.zone }},
+					{{ booking.property.city }}
+				</mat-card-content>
+			</div>
+			<div class="booking-detail">
+				<h3>Datos de la reserva</h3>
+				<div class="separator">
+					<mat-card-content class="booking-content">
+						<span class="info-label"> Check In: <br /></span>
+						{{ booking.checkIn | date }}
+					</mat-card-content>
+					<mat-card-content class="booking-content">
+						<span class="info-label"> Check Out: <br /></span>
+						{{ booking.checkOut | date }}
+					</mat-card-content>
+				</div>
+				<!-- Traer properties ya populadas en city y province -->
+				<div class="separator">
+					<mat-card-content class="booking-content">
+						<span class="info-label"> Estado: <br /></span>{{ booking.status }}
+					</mat-card-content>
+					<mat-card-content class="booking-content">
+						<span class="info-label"> Total pagado: <br /></span>
+						{{ booking.totalPrice | currency }}
+					</mat-card-content>
+				</div>
+			</div>
+			<div class="booking-guest">
+				<h3>Datos del huésped</h3>
+				<div class="separator">
+					<mat-card-content class="booking-content">
+						<span class="info-label">Nombre:<br /></span>
+						{{ booking.guest.firstName }} {{ booking.guest.lastName }}
+						<br />
+					</mat-card-content>
+					<mat-card-content class="booking-content">
+						<span class="info-label">Email:<br /></span>
+						{{ booking.guest.email }}
+					</mat-card-content>
+				</div>
+				<div class="separator">
+					<mat-card-content class="booking-content">
+						<span class="info-label">DNI:<br /></span> {{ booking.guest.dni }}
+					</mat-card-content>
+					<mat-card-content class="booking-content">
+						<span class="info-label">Fecha de nac:<br /></span>
+						{{ booking.guest.dob | date }}
+					</mat-card-content>
+				</div>
+			</div>
+		</div>
+		<mat-card-actions class="booking-actions">
+			<button mat-raised-button color="primary" class="booking-moreinfo">
+				Gestionar reserva
+			</button>
+		</mat-card-actions>
+	</mat-card>
+	<!-- <button mat-raised-button routerLink="../properties/new" color="primary">
+		Cargar nueva propiedad
+	</button> -->
+</div>
