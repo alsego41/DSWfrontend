@@ -5,83 +5,103 @@
 		</mat-card-header>
 		<mat-card-content class="contenido">
 			<mat-form-field class="text-field">
+				<mat-label>Nombre de la propiedad</mat-label>
 				<input
 					type="text"
 					formControlName="nameProperty"
 					matInput
 					placeholder="Nombre identificatorio de la Propiedad"
+					required="true"
 				/>
 			</mat-form-field>
 			<mat-form-field class="text-field">
+				<mat-label>Dirección</mat-label>
 				<input
 					type="text"
 					formControlName="address"
 					matInput
 					placeholder="Dirección"
+					required="true"
 				/>
 			</mat-form-field>
 			<div class="auto-comp">
+				<mat-label>Provincia *</mat-label>
 				<app-autocomplete
 					[tipoFiltro]="'province'"
 					(selectedProvince)="selectProvince($event)"
 					class="prov"
+					required="true"
 				></app-autocomplete>
 
 				<!-- https://docs.angular.lat/guide/inputs-outputs -->
 
+				<mat-label>Ciudad *</mat-label>
 				<app-autocomplete
 					[tipoFiltro]="'city-by-province'"
 					[province]="provinceSelected.id"
 					(selectedCity)="selectCity($event)"
 					class="city"
+					required="true"
 				></app-autocomplete>
 			</div>
 			<mat-form-field class="text-field">
+				<mat-label>Zona</mat-label>
 				<input
 					type="text"
 					formControlName="zone"
 					matInput
-					placeholder="Barrio"
+					placeholder="Zona"
+					required="true"
 				/>
 			</mat-form-field>
 			<mat-form-field class="text-field">
+				<mat-label>Cantidad de m2</mat-label>
 				<input
 					type="number"
 					formControlName="m2"
 					matInput
 					placeholder="Nº de M2"
+					required="true"
 				/>
 			</mat-form-field>
 			<mat-form-field class="text-field">
+				<mat-label>Cantidad de ambientes</mat-label>
 				<input
 					type="number"
 					formControlName="spaces"
 					matInput
 					placeholder="Nº de Ambientes"
+					required="true"
 				/>
 			</mat-form-field>
 			<mat-form-field class="text-field">
+				<mat-label>Cantidad de habitaciones</mat-label>
 				<input
 					type="number"
 					formControlName="roomQty"
 					matInput
 					placeholder="Nº de Habitaciones"
+					required="true"
 				/>
 			</mat-form-field>
 			<mat-form-field class="text-field">
+				<mat-label>Cantidad de baños</mat-label>
 				<input
 					type="number"
 					formControlName="bathQty"
 					matInput
 					placeholder="Nº de Baños"
+					required="true"
 				/>
 			</mat-form-field>
 			<mat-form-field class="text-field">
+				<mat-label>Precio por noche</mat-label>
 				<input
 					type="number"
 					formControlName="price"
 					matInput
-					placeholder="Precio"
+					placeholder="Precio por noche"
+					required="true"
 				/>
 			</mat-form-field>
 			<!-- Select options estado -->
@@ -97,29 +117,42 @@
 
 			<mat-form-field class="text-field">
 				<mat-label>Estado inicial</mat-label>
-				<mat-select formControlName="state">
+				<mat-select formControlName="state" required="true">
 					<mat-option value="Disponible">Disponible</mat-option>
 					<mat-option value="Sin Listar">Sin Listar</mat-option>
 				</mat-select>
 			</mat-form-field>
 
 			<mat-card-content class="marco-patio">
-				<mat-radio-group formControlName="backyard" class="Patio">
-					<mat-label class="n1">Patio</mat-label>
+				<mat-radio-group
+					formControlName="backyard"
+					class="Patio"
+					required="true"
+				>
+					<mat-label class="n1">Patio *</mat-label>
 					<mat-radio-button value="true">Tiene</mat-radio-button>
 					<mat-radio-button value="false">No tiene</mat-radio-button>
 				</mat-radio-group>
 			</mat-card-content>
 			<mat-card-content class="marco-parrilla">
-				<mat-radio-group formControlName="grill" class="Parrilla">
-					<mat-label class="n2">Parrilla</mat-label>
+				<mat-radio-group
+					formControlName="grill"
+					class="Parrilla"
+					required="true"
+				>
+					<mat-label class="n2">Parrilla *</mat-label>
 					<mat-radio-button value="true">Tiene</mat-radio-button>
 					<mat-radio-button value="false">No tiene</mat-radio-button>
 				</mat-radio-group>
 			</mat-card-content>
 		</mat-card-content>
 		<mat-card-actions class="carga">
-			<button (click)="onSubmit()" mat-raised-button color="primary">
+			<button
+				(click)="onSubmit()"
+				mat-raised-button
+				color="primary"
+				[ngClass]="sumbittedState ? 'btn-disabled' : ''"
+			>
 				Cargar propiedad
 			</button>
 		</mat-card-actions>
