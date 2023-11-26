@@ -1,5 +1,5 @@
 <form [formGroup]="newPropertyForm">
-	<mat-card>
+	<mat-card class="container">
 		<mat-card-header class="header">
 			<mat-card-title>Registrar nueva propiedad</mat-card-title>
 		</mat-card-header>
@@ -62,6 +62,7 @@
 					matInput
 					placeholder="Nº de M2"
 					required="true"
+					min="0"
 				/>
 			</mat-form-field>
 			<mat-form-field class="text-field">
@@ -72,6 +73,7 @@
 					matInput
 					placeholder="Nº de Ambientes"
 					required="true"
+					min="0"
 				/>
 			</mat-form-field>
 			<mat-form-field class="text-field">
@@ -82,6 +84,7 @@
 					matInput
 					placeholder="Nº de Habitaciones"
 					required="true"
+					min="0"
 				/>
 			</mat-form-field>
 			<mat-form-field class="text-field">
@@ -92,6 +95,7 @@
 					matInput
 					placeholder="Nº de Baños"
 					required="true"
+					min="0"
 				/>
 			</mat-form-field>
 			<mat-form-field class="text-field">
@@ -102,6 +106,7 @@
 					matInput
 					placeholder="Precio por noche"
 					required="true"
+					min="0"
 				/>
 			</mat-form-field>
 			<!-- Select options estado -->

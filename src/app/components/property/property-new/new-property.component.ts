@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core'
-import { FormBuilder } from '@angular/forms'
+import { FormBuilder, Validators } from '@angular/forms'
 import { PropertyService } from 'src/app/services/property.service'
 import { Property } from 'src/app/models/property'
 import { UserService } from 'src/app/services/user.service'
@@ -23,11 +23,11 @@ export class NewPropertyComponent {
 		province: [''],
 		city: [''],
 		zone: [''],
-		m2: [''],
-		spaces: [''],
-		roomQty: [''],
-		bathQty: [''],
-		price: [''],
+		m2: ['', Validators.min(0)],
+		spaces: ['', Validators.min(0)],
+		roomQty: ['', Validators.min(0)],
+		bathQty: ['', Validators.min(0)],
+		price: ['', Validators.min(0)],
 		state: [''],
 		backyard: [''],
 		grill: [''],
@@ -61,43 +61,51 @@ export class NewPropertyComponent {
 
 	onSubmit() {
 		this.sumbittedState = true
-		this.newProperty = {
-			_id: '',
-			nameProperty: this.newPropertyForm.value.nameProperty as string,
-			statusProperty: this.newPropertyForm.value.state as string,
-			photo: '',
-			address: this.newPropertyForm.value.address as string,
-			city: '',
-			province: '',
-			zone: this.newPropertyForm.value.zone as string,
-			m2: Number(this.newPropertyForm.value.m2),
-			spaces: Number(this.newPropertyForm.value.spaces),
-			roomQty: Number(this.newPropertyForm.value.roomQty),
-			bathQty: Number(this.newPropertyForm.value.bathQty),
-			backyard: Boolean(this.newPropertyForm.value.backyard),
-			grill: Boolean(this.newPropertyForm.value.grill),
-			price: Number(this.newPropertyForm.value.price),
-			user: '',
-		}
-		let _this = this
-		this.propertyService
-			.createProperty(
-				this.newProperty,
-				this.provinceSelected,
-				this.citySelected,
-				localStorage.getItem('token') || '',
+		// console.log()
+		if (this.newPropertyForm.valid) {
+			this.newProperty = {
+				_id: '',
+				nameProperty: this.newPropertyForm.value.nameProperty as string,
+				statusProperty: this.newPropertyForm.value.state as string,
+				photo: '',
+				address: this.newPropertyForm.value.address as string,
+				city: '',
+				province: '',
+				zone: this.newPropertyForm.value.zone as string,
+				m2: Number(this.newPropertyForm.value.m2),
+				spaces: Number(this.newPropertyForm.value.spaces),
+				roomQty: Number(this.newPropertyForm.value.roomQty),
+				bathQty: Number(this.newPropertyForm.value.bathQty),
+				backyard: Boolean(this.newPropertyForm.value.backyard),
+				grill: Boolean(this.newPropertyForm.value.grill),
+				price: Number(this.newPropertyForm.value.price),
+				user: '',
+			}
+			let _this = this
+			this.propertyService
+				.createProperty(
+					this.newProperty,
+					this.provinceSelected,
+					this.citySelected,
+					localStorage.getItem('token') || '',
+				)
+				.subscribe({
+					next(res) {
+						_this.snackBarService.setSBTitle(
+							`Su nueva propiedad fue creada con éxito`,
+						)
+						_this.router.navigate(['/user/ownerlist'])
+					},
+					error(err) {
+						_this.snackBarService.setSBTitle(`Su propiedad no pudo ser creada`)
+						_this.sumbittedState = false
+					},
+				})
+		} else {
+			this.snackBarService.setSBTitle(
+				`Su propiedad no puede ser creada - Falta información`,
 			)
-			.subscribe({
-				next(res) {
-					_this.snackBarService.setSBTitle(
-						`Su nueva propiedad fue creada con éxito`,
-					)
-					_this.router.navigate(['/user/ownerlist'])
-				},
-				error(err) {
-					_this.snackBarService.setSBTitle(`Su propiedad no pudo ser creada`)
-					_this.sumbittedState = false
-				},
-			})
+			this.sumbittedState = false
+		}
 	}
 }
