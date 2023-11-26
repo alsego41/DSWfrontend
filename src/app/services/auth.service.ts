@@ -18,13 +18,10 @@ export class AuthService {
 	}
 
 	getUserData(): any {
-		console.log('getting data')
-
 		return this.userData
 	}
 
 	setUserData(userData: any): void {
-		console.log('setting data')
 		this.userData = userData
 	}
 
@@ -38,10 +35,8 @@ export class AuthService {
 			})
 			if (res.status === 200) {
 				const json = await res.json()
-				console.log(json.payload)
 				return true
 			} else {
-				console.log(res.status)
 				return false
 			}
 		} else {
