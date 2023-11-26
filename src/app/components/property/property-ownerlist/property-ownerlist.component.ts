@@ -1,6 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core'
 import { PropertyService } from 'src/app/services/property.service'
 import { Property } from 'src/app/models/property'
+import { Title } from '@angular/platform-browser'
 
 @Component({
 	selector: 'app-property-ownerlist',
@@ -8,7 +9,9 @@ import { Property } from 'src/app/models/property'
 	styleUrls: ['./property-ownerlist.component.scss'],
 })
 export class PropertyOwnerlistComponent implements AfterViewInit {
-	constructor(private propertyService: PropertyService) {}
+	constructor(private propertyService: PropertyService, private title: Title) {
+		this.title.setTitle('Mis Propiedades - GU Alquileres')
+	}
 	properties: Property[] = []
 
 	ngAfterViewInit(): void {

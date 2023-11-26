@@ -4,6 +4,7 @@ import { Property } from 'src/app/models/property'
 import { UserService } from 'src/app/services/user.service'
 import { PropertyService } from 'src/app/services/property.service'
 import { Observable } from 'rxjs'
+import { Title } from '@angular/platform-browser'
 
 @Component({
 	selector: 'app-user',
@@ -12,7 +13,13 @@ import { Observable } from 'rxjs'
 	host: { class: 'user-comp' },
 })
 export class UserComponent implements AfterViewInit {
-	constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+	constructor(
+		private router: Router,
+		private activatedRoute: ActivatedRoute,
+		private title: Title,
+	) {
+		title.setTitle('Menú Usuario - GU Alquileres')
+	}
 	userService: UserService = inject(UserService)
 	userData: any | undefined
 	propertyService: PropertyService = inject(PropertyService)
@@ -23,6 +30,11 @@ export class UserComponent implements AfterViewInit {
 		this.userService.getInfo().subscribe((data) => {
 			this.userData = data.payload
 			this.userType = data.payload.userType?.nameType || ''
+			this.title.setTitle(
+				`${
+					data.payload.firstName + ' ' + data.payload.lastName
+				} - GU Alquileres`,
+			)
 		})
 		const _this = this
 		this.propertyService

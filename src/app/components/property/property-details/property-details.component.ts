@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { PropertyService } from '../../../services/property.service'
 import { Property } from '../../../models/property'
+import { Title } from '@angular/platform-browser'
 
 @Component({
 	selector: 'app-property-details',
@@ -17,7 +18,8 @@ export class PropertyDetailsComponent {
 	checkOut: any
 	cantDias: number
 
-	constructor() {
+	constructor(private title: Title) {
+		this.title.setTitle('Detalle Propiedad - GU Alquileres')
 		this.route.queryParams.subscribe((params) => {
 			this.propertyId = this.route.snapshot.params['id']
 			this.checkIn = params['checkIn']

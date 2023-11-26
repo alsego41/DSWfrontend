@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core'
+import { Title } from '@angular/platform-browser'
 import { ActivatedRoute, Router } from '@angular/router'
 import { BookingService } from 'src/app/services/booking.service'
 import { PropertyService } from 'src/app/services/property.service'
+import { SnackbarService } from 'src/app/services/snackbar.service'
 
 @Component({
 	selector: 'app-property-booking',
@@ -19,7 +21,11 @@ export class PropertyBookingComponent implements OnInit {
 		private router: Router,
 		private bookingService: BookingService,
 		private propertyService: PropertyService,
-	) {}
+		private title: Title,
+		private snackBarService: SnackbarService,
+	) {
+		this.title.setTitle('cConfirmar reserva - GU Alquileres')
+	}
 
 	ngOnInit() {
 		this.route.queryParams.subscribe((params) => {
@@ -31,13 +37,6 @@ export class PropertyBookingComponent implements OnInit {
 		this.propertyService
 			.getPropertyByIdFull(this.propertyId)
 			.subscribe((data) => (this.Property = data))
-		// console.log(this.checkIn)
-		// console.log(this.checkOut)
-
-		// call service get property
-		// call service get user
-
-		// after payment, go to confirmation page
 	}
 
 	calculateTotal(checkInExp: string, checkOutExp: string, price: number) {
@@ -57,9 +56,8 @@ export class PropertyBookingComponent implements OnInit {
 				propertyId: this.propertyId,
 			})
 			.subscribe((data) => {
-				this.router.navigateByUrl('/user/bookings')
-				console.log(data)
-				// display snackbar
+				this.router.navigate(['/user/bookings'])
+				this.snackBarService.setSBTitle('Reserva creada con éxito')
 			})
 	}
 }

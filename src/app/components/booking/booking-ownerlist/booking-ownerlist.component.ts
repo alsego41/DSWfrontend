@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Title } from '@angular/platform-browser'
 import { BookingService } from 'src/app/services/booking.service'
 
 @Component({
@@ -7,7 +8,9 @@ import { BookingService } from 'src/app/services/booking.service'
 	styleUrls: ['./booking-ownerlist.component.scss'],
 })
 export class BookingOwnerlistComponent implements OnInit {
-	constructor(private bookingService: BookingService) {}
+	constructor(private bookingService: BookingService, private title: Title) {
+		this.title.setTitle('Reservas de mis propiedades - GU Alquileres')
+	}
 	bookingList: any[]
 
 	ngOnInit(): void {

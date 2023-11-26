@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/user.service'
 import { User } from 'src/app/models/user'
 import { Router } from '@angular/router'
 import { SnackbarService } from 'src/app/services/snackbar.service'
+import { Title } from '@angular/platform-browser'
 
 @Component({
 	selector: 'app-register-user',
@@ -18,7 +19,9 @@ export class RegisterUserComponent {
 	constructor(
 		private formBuilder: FormBuilder,
 		private snackBarService: SnackbarService,
+		private title: Title,
 	) {
+		this.title.setTitle('Registro - GU Alquileres')
 		this.maxDate = new Date()
 	}
 	registerForm = this.formBuilder.group({
@@ -32,7 +35,6 @@ export class RegisterUserComponent {
 		gender: ['', Validators.required],
 	})
 	submittedState: boolean = false
-	// pasar a service
 	onSubmit() {
 		this.submittedState = true
 		if (this.registerForm.valid) {
@@ -52,7 +54,6 @@ export class RegisterUserComponent {
 			const _this = this
 			this.userService.register(this.newUser).subscribe({
 				next(value) {
-					// Display snackbar
 					_this.snackBarService.setSBTitle(`Usuario creado con éxito`)
 					_this.router.navigate(['/user'])
 				},

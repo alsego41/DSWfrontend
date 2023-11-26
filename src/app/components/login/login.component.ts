@@ -5,6 +5,7 @@ import { LoginAuth, LoginBody } from 'src/app/models/login-auth'
 import { ActivatedRoute, Router } from '@angular/router'
 import { SnackbarService } from 'src/app/services/snackbar.service'
 import { AuthService } from 'src/app/services/auth.service'
+import { Title } from '@angular/platform-browser'
 
 @Component({
 	selector: 'app-login',
@@ -17,7 +18,10 @@ export class LoginComponent implements AfterViewInit {
 		private authService: AuthService,
 		private route: ActivatedRoute,
 		private router: Router,
-	) {}
+		private title: Title,
+	) {
+		this.title.setTitle('Login - GU Alquileres')
+	}
 	snackBarService: SnackbarService = inject(SnackbarService)
 	loginForm: FormGroup = this.formBuilder.group({
 		email: [''],
@@ -40,22 +44,12 @@ export class LoginComponent implements AfterViewInit {
 		this.authService.login(this.loginInfo).subscribe({
 			next(data: LoginAuth) {
 				_this.authService.setUserData(data)
-				// console.log(_this.authService.getUserData())
 				_this.storeAndProceed(data.token)
 			},
 			error(err) {
 				_this.handleFailedAccess(err)
 			},
 		})
-		// this.userService.login(this.body).subscribe({
-		// 	next(response: LoginAuth) {
-		// 		console.log(response)
-		// 		_this.storeAndProceed(response.token)
-		// 	},
-		// 	error(err) {
-		// 		_this.handleFailedAccess(err)
-		// 	},
-		// })
 	}
 
 	storeAndProceed(token: string) {

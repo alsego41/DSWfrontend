@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core'
+import { Title } from '@angular/platform-browser'
 import { ActivatedRoute, Router } from '@angular/router'
-import { Property } from 'src/app/models/property'
 
 @Component({
 	selector: 'app-cards',
@@ -10,7 +10,12 @@ import { Property } from 'src/app/models/property'
 export class CardsComponent {
 	searchData: any[]
 	bookingInfo: any
-	constructor(private router: Router, private route: ActivatedRoute) {
+	constructor(
+		private router: Router,
+		private route: ActivatedRoute,
+		private title: Title,
+	) {
+		title.setTitle('Resultados - GU Alquileres')
 		this.route.queryParams.subscribe((params) => {
 			this.searchData = JSON.parse(params['data']).propsFiltered
 			this.bookingInfo = JSON.parse(params['booking'])

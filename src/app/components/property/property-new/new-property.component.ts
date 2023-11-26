@@ -5,6 +5,7 @@ import { Property } from 'src/app/models/property'
 import { UserService } from 'src/app/services/user.service'
 import { SnackbarService } from 'src/app/services/snackbar.service'
 import { Router } from '@angular/router'
+import { Title } from '@angular/platform-browser'
 
 @Component({
 	selector: 'app-new-property',
@@ -16,7 +17,10 @@ export class NewPropertyComponent {
 		private formBuilder: FormBuilder,
 		private snackBarService: SnackbarService,
 		private router: Router,
-	) {}
+		private title: Title,
+	) {
+		this.title.setTitle('Nueva Propiedad - GU Alquileres')
+	}
 	newPropertyForm = this.formBuilder.group({
 		nameProperty: [''],
 		address: [''],
@@ -51,7 +55,6 @@ export class NewPropertyComponent {
 		this.provinceSelected.nombre = event.nombre
 	}
 	selectCity(event: { id: string; nombre: string; departamento: string }) {
-		// console.log(event)
 		this.citySelected.id = event.id
 		this.citySelected.nombre = event.nombre
 		this.citySelected.departamento = event.departamento
@@ -61,7 +64,6 @@ export class NewPropertyComponent {
 
 	onSubmit() {
 		this.sumbittedState = true
-		// console.log()
 		if (this.newPropertyForm.valid) {
 			this.newProperty = {
 				_id: '',
