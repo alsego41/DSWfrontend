@@ -12,11 +12,10 @@ export class BookingUserlistComponent implements AfterViewInit {
 	constructor(private bookingService: BookingService, private title: Title) {
 		this.title.setTitle('Mis reservas - GU Alquileres')
 	}
-	bookingList: Booking[] = []
+	bookingList: any[] = []
 
 	ngAfterViewInit(): void {
 		this.bookingService.getUserBookings().subscribe((data) => {
-			console.log(data)
 			this.bookingList = data
 		})
 	}

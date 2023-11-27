@@ -12,7 +12,7 @@ export class PropertyOwnerlistComponent implements AfterViewInit {
 	constructor(private propertyService: PropertyService, private title: Title) {
 		this.title.setTitle('Mis Propiedades - GU Alquileres')
 	}
-	properties: Property[] = []
+	properties: any[] = []
 
 	ngAfterViewInit(): void {
 		const _this = this

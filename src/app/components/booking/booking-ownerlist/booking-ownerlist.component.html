@@ -13,9 +13,18 @@
 			<div class="booking-property">
 				<h3>{{ booking.property.nameProperty }}</h3>
 				<mat-card-content class="booking-content"
-					>Dirección: {{ booking.property.address }}, Zona
-					{{ booking.property.zone }},
-					{{ booking.property.city }}
+					>{{
+						'Dirección: ' +
+							booking.property.address +
+							', Zona ' +
+							booking.property.zone
+					}}
+					<br />
+					{{
+						booking.property.city.nameCity +
+							', ' +
+							booking.property.city.province.nameProvince
+					}}
 				</mat-card-content>
 			</div>
 			<div class="booking-detail">
@@ -71,7 +80,4 @@
 			</button>
 		</mat-card-actions>
 	</mat-card>
-	<!-- <button mat-raised-button routerLink="../properties/new" color="primary">
-		Cargar nueva propiedad
-	</button> -->
 </div>

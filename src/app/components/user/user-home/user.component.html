@@ -28,32 +28,41 @@
 			>
 				Ver mis propiedades
 			</button>
-		
-		
-		  <button
-			mat-raised-button
-			routerLink="./properties/bookings"
-			color="secondary"
-			class="manage"
-		   >
-			Gestionar mis alquileres
-		  </button>
-		  <button mat-raised-button routerLink="./bookings" color="secondary" class="view">
-			Ver mis reservas
-		  </button>
+
+			<button
+				mat-raised-button
+				routerLink="./properties/bookings"
+				color="secondary"
+				class="manage"
+			>
+				Gestionar mis alquileres
+			</button>
+			<button
+				mat-raised-button
+				routerLink="./bookings"
+				color="secondary"
+				class="view"
+			>
+				Ver mis reservas
+			</button>
 		</div>
-		<button mat-raised-button (click)="logout()" color="secondary" class="log-out">
+		<button
+			mat-raised-button
+			(click)="logout()"
+			color="secondary"
+			class="log-out"
+		>
 			Cerrar Sesión
 		</button>
 	</div>
-	<div *ngSwitchCase="'Guest'">
+	<div *ngSwitchCase="'Guest'" class="guest-bookings">
 		<div class="btn-container">
 			<p>
 				{{ userData?.firstName || 'User name' }}
 				{{ userData?.lastName }}
 			</p>
-			<p> {{ userData?.email! }}</p>
-			<p> {{ userData?.userType.nameType! }}</p>
+			<p>{{ userData?.email! }}</p>
+			<p>{{ userData?.userType.nameType! }}</p>
 			<button
 				mat-raised-button
 				routerLink="./profile"
